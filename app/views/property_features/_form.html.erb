@@ -1,0 +1,62 @@
+<%= form_with(model: property_feature) do |form| %>
+  <% if property_feature.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(property_feature.errors.count, "error") %> prohibited this property_feature from being saved:</h2>
+
+      <ul>
+        <% property_feature.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :total_area %>
+    <%= form.text_field :total_area %>
+  </div>
+
+  <div class="field">
+    <%= form.label :build_area %>
+    <%= form.text_field :build_area %>
+  </div>
+
+  <div class="field">
+    <%= form.label :year_old %>
+    <%= form.number_field :year_old %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rooms %>
+    <%= form.number_field :rooms %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bathrooms %>
+    <%= form.number_field :bathrooms %>
+  </div>
+
+  <div class="field">
+    <%= form.label :social_bathrooms %>
+    <%= form.number_field :social_bathrooms %>
+  </div>
+
+  <div class="field">
+    <%= form.label :parking %>
+    <%= form.number_field :parking %>
+  </div>
+
+  <div class="field">
+    <%= form.label :trunk %>
+    <%= form.number_field :trunk %>
+  </div>
+
+  <div class="field">
+    <%= form.label :property_id %>
+    <%= form.text_field :property_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

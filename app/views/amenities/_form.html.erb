@@ -1,0 +1,47 @@
+<%= form_with(model: amenity) do |form| %>
+  <% if amenity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(amenity.errors.count, "error") %> prohibited this amenity from being saved:</h2>
+
+      <ul>
+        <% amenity.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :bbq %>
+    <%= form.check_box :bbq %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sport_zones %>
+    <%= form.check_box :sport_zones %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gym %>
+    <%= form.check_box :gym %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pool %>
+    <%= form.check_box :pool %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comunal_room %>
+    <%= form.check_box :comunal_room %>
+  </div>
+
+  <div class="field">
+    <%= form.label :property_id %>
+    <%= form.text_field :property_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

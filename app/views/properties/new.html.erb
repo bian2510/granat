@@ -1,5 +1,8 @@
 <h1>New Property</h1>
 
 <%= render 'form', property: @property %>
+<%= render 'addresses/form.html.erb', address: @property %>
+<%= render 'property_features/form.html.erb', property_feature: @property %>
+<%= render 'amenities/form.html.erb', amenity: @property %>
 
 <%= link_to 'Back', properties_path %>

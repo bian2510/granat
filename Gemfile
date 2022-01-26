@@ -21,6 +21,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+# Devise is a flexible authentication solution for Rails based on Warden
+gem 'devise', '~> 4.8', '>= 4.8.1'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -33,6 +35,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Brings the RSpec testing framework to Ruby on Rails
   gem 'rspec-rails', '~> 5.0.0'
+  gem 'rexml', '~> 3.2', '>= 3.2.4'
 end
 
 group :development do

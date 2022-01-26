@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Total area:</strong>
+  <%= @property_feature.total_area %>
+</p>
+
+<p>
+  <strong>Build area:</strong>
+  <%= @property_feature.build_area %>
+</p>
+
+<p>
+  <strong>Year old:</strong>
+  <%= @property_feature.year_old %>
+</p>
+
+<p>
+  <strong>Rooms:</strong>
+  <%= @property_feature.rooms %>
+</p>
+
+<p>
+  <strong>Bathrooms:</strong>
+  <%= @property_feature.bathrooms %>
+</p>
+
+<p>
+  <strong>Social bathrooms:</strong>
+  <%= @property_feature.social_bathrooms %>
+</p>
+
+<p>
+  <strong>Parking:</strong>
+  <%= @property_feature.parking %>
+</p>
+
+<p>
+  <strong>Trunk:</strong>
+  <%= @property_feature.trunk %>
+</p>
+
+<p>
+  <strong>Property:</strong>
+  <%= @property_feature.property_id %>
+</p>
+
+<%= link_to 'Edit', edit_property_feature_path(@property_feature) %> |
+<%= link_to 'Back', property_features_path %>
