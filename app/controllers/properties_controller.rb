@@ -25,7 +25,7 @@ class PropertiesController < ApplicationController
     @property.admin_id = current_admin.id
     respond_to do |format|
       if @property.save
-        format.html { redirect_to new_property_feature_path(property_id: @property), notice: "Property was successfully created." }
+        format.html { redirect_to new_property_feature_path(property_id: @property.id), notice: "Property was successfully created." }
         format.json { render :show, status: :created, location: @property }
       else
         format.html { render :new, status: :unprocessable_entity }

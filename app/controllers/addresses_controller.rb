@@ -13,6 +13,7 @@ class AddressesController < ApplicationController
   # GET /addresses/new
   def new
     @address = Address.new
+    @address.property_id = params['property_id']
   end
 
   # GET /addresses/1/edit
@@ -25,6 +26,7 @@ class AddressesController < ApplicationController
 
     respond_to do |format|
       if @address.save
+        format.html { redirect_to new_amenity_path(property_id: @address.property_id), notice: "Property was successfully created." }
         format.html { redirect_to @address, notice: "Address was successfully created." }
         format.json { render :show, status: :created, location: @address }
       else

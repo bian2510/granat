@@ -13,6 +13,7 @@ class AmenitiesController < ApplicationController
   # GET /amenities/new
   def new
     @amenity = Amenity.new
+    @amenity.property_id = params['property_id']
   end
 
   # GET /amenities/1/edit
@@ -25,7 +26,7 @@ class AmenitiesController < ApplicationController
 
     respond_to do |format|
       if @amenity.save
-        format.html { redirect_to @amenity, notice: "Amenity was successfully created." }
+        format.html { redirect_to property_path(@amenity.property_id), notice: "Amenity was successfully created." }
         format.json { render :show, status: :created, location: @amenity }
       else
         format.html { render :new, status: :unprocessable_entity }

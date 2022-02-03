@@ -26,7 +26,7 @@ class PropertyFeaturesController < ApplicationController
 
     respond_to do |format|
       if @property_feature.save
-        format.html { redirect_to @property_feature, notice: "Property feature was successfully created." }
+        format.html { redirect_to new_address_path(property_id: @property_feature.property_id), notice: "Property feature was successfully created." }
         format.json { render :show, status: :created, location: @property_feature }
       else
         format.html { render :new, status: :unprocessable_entity }
