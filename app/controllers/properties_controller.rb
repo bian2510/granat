@@ -3,7 +3,7 @@ class PropertiesController < ApplicationController
 
   # GET /properties or /properties.json
   def index
-    @properties = Property.includes(:address).all
+    @properties = Property.includes(:property_feature).all
   end
 
   # GET /properties/1 or /properties/1.json
@@ -21,12 +21,11 @@ class PropertiesController < ApplicationController
 
   # POST /properties or /properties.json
   def create
-    byebug
     @property = Property.new(property_params)
-
+    @property.admin_id = current_admin.id
     respond_to do |format|
       if @property.save
-        format.html { redirect_to @property, notice: "Property was successfully created." }
+        format.html { redirect_to new_property_feature_path(property_id: @property), notice: "Property was successfully created." }
         format.json { render :show, status: :created, location: @property }
       else
         format.html { render :new, status: :unprocessable_entity }

@@ -1,6 +1,6 @@
 class Property < ApplicationRecord
     belongs_to :admin
-    has_one :address
-    has_one :property_features
-    has_one :amenity
+    has_one :address, dependent: :destroy
+    has_one :property_feature, dependent: :destroy
+    has_one :amenity, dependent: :destroy
 end

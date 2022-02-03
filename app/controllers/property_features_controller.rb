@@ -13,6 +13,7 @@ class PropertyFeaturesController < ApplicationController
   # GET /property_features/new
   def new
     @property_feature = PropertyFeature.new
+    @property_feature.property_id = params['property_id']
   end
 
   # GET /property_features/1/edit
