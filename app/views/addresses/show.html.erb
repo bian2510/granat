@@ -29,6 +29,7 @@
   <strong>Property:</strong>
   <%= @address.property_id %>
 </p>
-
-<%= link_to 'Edit', edit_address_path(@address) %> |
+<% if admin_signed_in? %>
+  <%= link_to 'Edit', edit_address_path(@address) %> |
+<% end %>
 <%= link_to 'Back', addresses_path %>
