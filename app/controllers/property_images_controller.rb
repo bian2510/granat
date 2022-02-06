@@ -13,6 +13,7 @@ class PropertyImagesController < ApplicationController
   # GET /property_images/new
   def new
     @property_image = PropertyImage.new
+    @property_image.property_id = params['property_id']
   end
 
   # GET /property_images/1/edit
@@ -25,7 +26,7 @@ class PropertyImagesController < ApplicationController
 
     respond_to do |format|
       if @property_image.save
-        format.html { redirect_to @property_image, notice: "Property image was successfully created." }
+        format.html { redirect_to properties_path, notice: "Property image was successfully created." }
         format.json { render :show, status: :created, location: @property_image }
       else
         format.html { render :new, status: :unprocessable_entity }

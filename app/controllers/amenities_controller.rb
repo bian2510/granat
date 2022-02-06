@@ -26,7 +26,7 @@ class AmenitiesController < ApplicationController
 
     respond_to do |format|
       if @amenity.save
-        format.html { redirect_to property_path(@amenity.property_id), notice: "Amenity was successfully created." }
+        format.html { redirect_to new_property_image_path(property_id: @amenity.property_id), notice: "Amenity was successfully created." }
         format.json { render :show, status: :created, location: @amenity }
       else
         format.html { render :new, status: :unprocessable_entity }
