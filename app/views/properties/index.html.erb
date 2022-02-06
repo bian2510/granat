@@ -2,52 +2,27 @@
 
 <h1>Properties</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Kind</th>
-      <th>Operation</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <% @properties.each do |property| %>
+    <div class="col">
+      <div class="card h-100">
+        <%= render 'carrousel', property: property %>
+        <div class="card-body">
+          <h5 class="card-title"><%= property.name %></h5>
+          <p class="card-text"><%= property.description %></p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted"><%= property.created_at %></small>
+        </div>
+        <div>
+          <%= link_to 'Show', property %>
+          <%= link_to 'Edit', edit_property_path(property) %>
+          <%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>  
+      </div>
+    </div>      
+  <% end %>
+</div>
 
-  <tbody>
-    <% @properties.each do |property| %>
-      <tr>
-        <td><%= property.name %></td>
-        <td><%= property.description %></td>
-        <td><%= property.price %></td>
-        <td><%= property.kind %></td>
-        <td><%= property.operation %></td>
-        <td><%= property.property_feature.total_area %></td>
-        <td><%= property.property_feature.build_area %></td>
-        <td><%= property.property_feature.year_old %></td>
-        <td><%= property.property_feature.rooms %></td>
-        <td><%= property.property_feature.bathrooms %></td>
-        <td><%= property.property_feature.social_bathrooms %></td>
-        <td><%= property.property_feature.parking %></td>
-        <td><%= property.property_feature.trunk %></td>
-        <td><%= property.address.province %></td>
-        <td><%= property.address.city %></td>
-        <td><%= property.address.municipality %></td>
-        <td><%= property.address.main_street %></td>
-        <td><%= property.address.secondary_street %></td>
-        <td><%= property.amenity.bbq %></td>
-        <td><%= property.amenity.sport_zones %></td>
-        <td><%= property.amenity.gym %></td>
-        <td><%= property.amenity.pool %></td>
-        <td><%= property.amenity.comunal_room %></td>
-        <td><%= link_to 'Show', property %></td>
-        <td><%= link_to 'Edit', edit_property_path(property) %></td>
-        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
 
 <%= link_to 'New Property', new_property_path %>
