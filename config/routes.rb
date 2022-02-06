@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :property_images
   resources :amenities
   resources :property_features
   resources :addresses

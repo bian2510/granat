@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @property_image.url %>
+</p>
+
+<p>
+  <strong>Property:</strong>
+  <%= @property_image.property_id %>
+</p>
+
+<%= image_tag(@property_image.photo_1, width: 200) if @property_image.photo_1.attached? %>
+<%= image_tag(@property_image.photo_2, width: 200) if @property_image.photo_2.attached? %>
+<%= image_tag(@property_image.photo_3, width: 200) if @property_image.photo_3.attached? %>
+<%= image_tag(@property_image.photo_4, width: 200) if @property_image.photo_4.attached? %>
+
+<%= link_to 'Edit', edit_property_image_path(@property_image) %> |
+<%= link_to 'Back', property_images_path %>
