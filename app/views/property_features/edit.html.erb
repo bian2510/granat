@@ -2,5 +2,5 @@
 
 <%= render 'form', property_feature: @property_feature %>
 
-<%= link_to 'Show', @property_feature %> |
-<%= link_to 'Back', property_features_path %>
+<%= link_to 'Show', property_path(@property_feature.property_id) %> |
+<%= link_to 'Back', properties_path %>

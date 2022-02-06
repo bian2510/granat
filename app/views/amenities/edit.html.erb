@@ -2,5 +2,5 @@
 
 <%= render 'form', amenity: @amenity %>
 
-<%= link_to 'Show', @amenity %> |
-<%= link_to 'Back', amenities_path %>
+<%= link_to 'Show', property_path(@amenity.property_id) %> |
+<%= link_to 'Back', properties_path %>
