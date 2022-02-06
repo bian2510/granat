@@ -1,5 +1,5 @@
 class PropertyImagesController < ApplicationController
-  before_action :set_property_image, only: %i[ show edit update destroy ]
+  before_action :set_property_image, only: %i[ show destroy ]
 
   # GET /property_images or /property_images.json
   def index
@@ -18,6 +18,7 @@ class PropertyImagesController < ApplicationController
 
   # GET /property_images/1/edit
   def edit
+    @property_image = PropertyImage.find_by(property_id: params["property_id"])
   end
 
   # POST /property_images or /property_images.json
@@ -37,9 +38,11 @@ class PropertyImagesController < ApplicationController
 
   # PATCH/PUT /property_images/1 or /property_images/1.json
   def update
+    byebug
+    @property_image = PropertyImage.find_by(property_id: params.require(:property_image)["property_id"])
     respond_to do |format|
       if @property_image.update(property_image_params)
-        format.html { redirect_to @property_image, notice: "Property image was successfully updated." }
+        format.html { redirect_to property_path(@property_image.property_id), notice: "Property image was successfully updated." }
         format.json { render :show, status: :ok, location: @property_image }
       else
         format.html { render :edit, status: :unprocessable_entity }

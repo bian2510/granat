@@ -1,5 +1,5 @@
 class PropertyFeaturesController < ApplicationController
-  before_action :set_property_feature, only: %i[ show edit update destroy ]
+  before_action :set_property_feature, only: %i[ show destroy ]
 
   # GET /property_features or /property_features.json
   def index
@@ -18,6 +18,7 @@ class PropertyFeaturesController < ApplicationController
 
   # GET /property_features/1/edit
   def edit
+    @property_feature = PropertyFeature.find_by(property_id: params["property_id"])
   end
 
   # POST /property_features or /property_features.json
@@ -37,9 +38,10 @@ class PropertyFeaturesController < ApplicationController
 
   # PATCH/PUT /property_features/1 or /property_features/1.json
   def update
+    @property_feature = PropertyFeature.find_by(property_id: params.require(:property_feature)["property_id"])
     respond_to do |format|
       if @property_feature.update(property_feature_params)
-        format.html { redirect_to @property_feature, notice: "Property feature was successfully updated." }
+        format.html { redirect_to edit_address_path(property_id: @property_feature.property_id), notice: "Property feature was successfully updated." }
         format.json { render :show, status: :ok, location: @property_feature }
       else
         format.html { render :edit, status: :unprocessable_entity }

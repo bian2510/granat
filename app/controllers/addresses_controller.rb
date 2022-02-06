@@ -1,5 +1,5 @@
 class AddressesController < ApplicationController
-  before_action :set_address, only: %i[ show edit update destroy ]
+  before_action :set_address, only: %i[ show destroy ]
 
   # GET /addresses or /addresses.json
   def index
@@ -18,6 +18,7 @@ class AddressesController < ApplicationController
 
   # GET /addresses/1/edit
   def edit
+    @address = Address.find_by(property_id: params["property_id"])
   end
 
   # POST /addresses or /addresses.json
@@ -38,9 +39,10 @@ class AddressesController < ApplicationController
 
   # PATCH/PUT /addresses/1 or /addresses/1.json
   def update
+    @property_feature = PropertyFeature.find_by(property_id: params.require(:address)["property_id"])
     respond_to do |format|
       if @address.update(address_params)
-        format.html { redirect_to @address, notice: "Address was successfully updated." }
+        format.html { redirect_to edit_amenity_path(property_id: @address.property_id), notice: "Address was successfully updated." }
         format.json { render :show, status: :ok, location: @address }
       else
         format.html { render :edit, status: :unprocessable_entity }

@@ -1,5 +1,5 @@
 class AmenitiesController < ApplicationController
-  before_action :set_amenity, only: %i[ show edit update destroy ]
+  before_action :set_amenity, only: %i[ show destroy ]
 
   # GET /amenities or /amenities.json
   def index
@@ -18,6 +18,7 @@ class AmenitiesController < ApplicationController
 
   # GET /amenities/1/edit
   def edit
+    @amenity = Amenity.find_by(property_id: params["property_id"])
   end
 
   # POST /amenities or /amenities.json
@@ -37,9 +38,10 @@ class AmenitiesController < ApplicationController
 
   # PATCH/PUT /amenities/1 or /amenities/1.json
   def update
+    @amenity = Amenity.find_by(property_id: params.require(:amenity)["property_id"])
     respond_to do |format|
       if @amenity.update(amenity_params)
-        format.html { redirect_to @amenity, notice: "Amenity was successfully updated." }
+        format.html { redirect_to edit_property_image_path(property_id: @amenity.property_id), notice: "Amenity was successfully updated." }
         format.json { render :show, status: :ok, location: @amenity }
       else
         format.html { render :edit, status: :unprocessable_entity }
