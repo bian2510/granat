@@ -39,7 +39,6 @@ class PropertyImagesController < ApplicationController
 
   # PATCH/PUT /property_images/1 or /property_images/1.json
   def update
-    byebug
     @property_image = PropertyImage.find_by(property_id: params.require(:property_image)["property_id"])
     respond_to do |format|
       if @property_image.update(property_image_params)
