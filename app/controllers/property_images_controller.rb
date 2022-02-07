@@ -1,5 +1,6 @@
 class PropertyImagesController < ApplicationController
   before_action :set_property_image, only: %i[ show destroy ]
+  before_action :authenticate_admin!, only: %i[ edit update destroy ]
 
   # GET /property_images or /property_images.json
   def index

@@ -1,5 +1,6 @@
 class AmenitiesController < ApplicationController
   before_action :set_amenity, only: %i[ show destroy ]
+  before_action :authenticate_admin!, only: %i[ edit update destroy ]
 
   # GET /amenities or /amenities.json
   def index

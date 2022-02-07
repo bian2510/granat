@@ -1,6 +1,7 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: %i[ edit update destroy ]
+  before_action :authenticate_admin!, only: %i[ edit update destroy ]
+
 
   # GET /properties or /properties.json
   def index
