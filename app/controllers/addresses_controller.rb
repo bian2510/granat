@@ -24,7 +24,6 @@ class AddressesController < ApplicationController
   # POST /addresses or /addresses.json
   def create
     @address = Address.new(address_params)
-
     respond_to do |format|
       if @address.save
         format.html { redirect_to new_amenity_path(property_id: @address.property_id), notice: "Property was successfully created." }
@@ -39,7 +38,7 @@ class AddressesController < ApplicationController
 
   # PATCH/PUT /addresses/1 or /addresses/1.json
   def update
-    @property_feature = PropertyFeature.find_by(property_id: params.require(:address)["property_id"])
+    @address = Address.find_by(property_id: params.require(:address)["property_id"])
     respond_to do |format|
       if @address.update(address_params)
         format.html { redirect_to edit_amenity_path(property_id: @address.property_id), notice: "Address was successfully updated." }

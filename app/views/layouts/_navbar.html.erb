@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark header-navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <%= image_tag("logo.jpeg", class: "logo")%>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a id="home" class="nav-link" aria-current="page" href="/">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a id="properties" class="nav-link" href="/properties">Propiedades</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Quienes Somos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li><li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <% if admin_signed_in? %>
+            <%= link_to 'Cerrar sesión', destroy_admin_session_path, method: :delete, class: "nav-link" %>
+          <% else %>
+            <%= link_to 'Iniciar sesión', new_admin_session_path, class: "nav-link" %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+switch (window.location.pathname) {
+  case '/':
+    $('.active').removeClass('active');
+    $('#home').addClass('active');
+    break;
+  case '/properties':
+    $('.active').removeClass('active');
+    $('#properties').addClass('active');
+    break;
+  case 'valorN':
+    //Declaraciones ejecutadas cuando el resultado de expresión coincide con valorN
+    break;
+  default:
+    //Declaraciones ejecutadas cuando ninguno de los valores coincide con el valor de la expresión
+    break;
+}
+</script>
+
+<style>
+.logo {
+  width: 75px;
+}
+.header-navbar {
+  background-color: black !important;
+  padding: 0px;
+}
+</style>
