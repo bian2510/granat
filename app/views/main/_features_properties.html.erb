@@ -1,32 +1,12 @@
 <div class="feature-properties container">
   <div>
-    <h1 class="primary-titles">Featured Properties</h1>
+    <h1 class="primary-titles">Propiedades destacadas</h1>
   </div>
   <div class="feature-container row">
-    <div class="card feature-container-card col col-12" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-    <div class="card feature-container-card col col-12" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-    <div class="card feature-container-card col col-12" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
+  <%# Change 6.times to each with features properties %>
+    <% 6.times do %>
+      <%= render "properties/property_card"%>
+    <% end %>
   </div>
   <div class="feature-container">
     <button type="text">View More</button>
