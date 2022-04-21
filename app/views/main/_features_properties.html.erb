@@ -1,20 +1,14 @@
-<div class="feature-properties container">
+<div class="container">
   <div>
-    <h1 class="primary-titles">Propiedades destacadas</h1>
+    <h1 class="h1 text-center">Propiedades destacadas</h1>
   </div>
-  <div class="feature-container row">
+  <div class="content-section-container row">
   <%# Change 6.times to each with features properties %>
-    <% 6.times do %>
-      <%= render "properties/property_card"%>
+    <% @properties.each do |property| %>
+      <%= render "properties/property_card", property: property%>
     <% end %>
   </div>
-  <div class="feature-container">
+  <div class="content-section-container">
     <button type="text">View More</button>
   </div>
 </div>
-
-<style>
-.feature-properties {
-  background-color: #84b6f4;
-}
-</style>
