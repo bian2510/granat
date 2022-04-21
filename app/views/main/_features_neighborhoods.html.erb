@@ -1,24 +1,10 @@
-<div class="feature-neighborhoods container">
+<div class="container">
   <div>
-    <h1 class="primary-titles">Featured Neighborhoods</h1>
+    <h1 class="primary-titles">Ciudades destacadas</h1>
   </div>
-  <div class="feature-container row">
-    <% 4.times do |i|%>
-      <%= render "feature_neighborhood_card"%>
+  <div class="content-section-container row">
+    <% ['Quito', 'Guayaquil', 'Ambato'].each do |city|%>
+      <%= render "feature_neighborhood_card", city: city%>
     <% end %>
   </div>
 </div>
-
-<style>
-.feature-neighborhoods {
-background-color: red;
-}
-.background-image {
-  background: url("https://st2.depositphotos.com/1041088/7766/i/600/depositphotos_77665926-stock-photo-large-modern-house-with-stone.jpg") no-repeat center center; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-
-}
-</style>
