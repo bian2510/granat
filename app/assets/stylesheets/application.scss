@@ -14,9 +14,8 @@
  @import 'bootstrap/scss/bootstrap';
 
  /* Main search */
-.section-container {
-   margin: 50px 0px 30px 0px;
-   justify-content: center;
+.content-section-container {
+   margin: 50px 0px 20px 0px;
 }
 .container-card {
    margin: 20px;
@@ -43,16 +42,8 @@
     margin: 20px;
     border-radius: 100px;
   }
-  .main-about-us-container {
-    background-color: yellow;
-    width: 80%;
-  }
-  .about-us-image-container.section-container {
+  .about-us-image-container {
     text-align: center;
-    margin: 0px;
-  }
-  .about-us-info-container {
-    display: flex;
   }
   .about-us-info {
     font-size: 25px;
