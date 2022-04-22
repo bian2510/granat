@@ -1,8 +1,6 @@
 <div class="card card-container background-image col col-12 col-md-6">
-  <div class="card-body">
-    <h4 class="card-title operation-property-card-label"><%= property.operation %></h6>
-    <h4 class="price-property-card-label"><%= property.price %></h4>
-    <h4 class="city-property-card-label"><%= property.address.city %></h4>
-    <%= render 'properties/carrousel', property: property %>
-  </div>
+  <%= render 'properties/carrousel', property: property %>
+  <h4 class="card-title operation-property-card-label"><%= property.operation %></h6>
+  <h4 class="price-property-card-label"><%= property.price %></h4>
+  <h4 class="city-property-card-label"><%= property.address.city %></h4>
 </div>
