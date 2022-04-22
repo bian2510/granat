@@ -73,20 +73,25 @@
    width: 300px;
 }
 .operation-property-card-label {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background-color: white;
-  }
-  .price-property-card-label {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background-color: white
-  }
-  .city-property-card-label {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    background-color: white
-  }
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: white;
+}
+.price-property-card-label {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: white
+}
+.city-property-card-label {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: white
+}
+
+/* Properties */
+.filter-container {
+  padding: 20px 30px;
+}
