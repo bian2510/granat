@@ -2,7 +2,7 @@
   <div>
     <h1 class="h1 text-center">Propiedades destacadas</h1>
   </div>
-  <div class="content-section-container row">
+  <div class="content-section-container row justify-content-center">
   <%# Change 6.times to each with features properties %>
     <% @properties.each do |property| %>
       <%= render "properties/property_card", property: property%>

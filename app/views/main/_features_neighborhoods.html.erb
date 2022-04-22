@@ -2,7 +2,7 @@
   <div>
     <h1 class="h1 text-center">Ciudades destacadas</h1>
   </div>
-  <div class="content-section-container row">
+  <div class="content-section-container row justify-content-center">
     <% ['Quito', 'Guayaquil', 'Ambato'].each do |city|%>
       <%= render "feature_neighborhood_card", city: city%>
     <% end %>
