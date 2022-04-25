@@ -25,7 +25,7 @@ class PropertyImagesController < ApplicationController
   # POST /property_images or /property_images.json
   def create
     @property_image = PropertyImage.new(property_image_params)
-
+    @property_image.images.attach(property_image_params[:images])
     respond_to do |format|
       if @property_image.save
         format.html { redirect_to properties_path, notice: "Property image was successfully created." }
@@ -68,6 +68,6 @@ class PropertyImagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def property_image_params
-      params.require(:property_image).permit(:url, :property_id, :photo_1, :photo_2, :photo_3, :photo_4)
+      params.require(:property_image).permit(:url, :property_id, images: [])
     end
 end

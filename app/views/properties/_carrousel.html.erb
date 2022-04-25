@@ -1,17 +1,12 @@
 <div id="carouselExampleControls<%=property.id%>" class="carousel slide" data-bs-interval="false">
   <div class="carousel-inner">
-    <div class="carousel-item active background-covr">
-      <%= image_tag(property.property_image.photo_1, class: "card-img-top d-block background-covr") if property.property_image.photo_1.attached? %>
-    </div>
-    <div class="carousel-item background-covr">
-      <%= image_tag(property.property_image.photo_2, class: "card-img-top d-block background-covr") if property.property_image.photo_2.attached? %>
-    </div>
-    <div class="carousel-item background-covr">
-      <%= image_tag(property.property_image.photo_3, class: "card-img-top d-block background-covr") if property.property_image.photo_3.attached? %>
-    </div>
-    <div class="carousel-item background-covr">
-      <%= image_tag(property.property_image.photo_4, class: "card-img-top d-block background-covr") if property.property_image.photo_4.attached? %>
-    </div>
+      <% count = 0%>
+      <% property.property_image.images.each do  |img| %>
+        <div class="carousel-item <%= 'active' if count == 0 %> background-covr">
+          <%= image_tag(img, class: "card-img-top d-block background-covr") %>
+          <% count += 1 %>
+        </div>
+      <% end %>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls<%=property.id%>" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
