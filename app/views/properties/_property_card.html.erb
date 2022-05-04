@@ -1,13 +1,88 @@
-<div class="card card-container col col-12 col-md-6">
-  <%= render 'properties/carrousel', property: property %>
-  <h4 class="card-title operation-property-card-label"><%= property.operation %></h6>
-  <h4 class="price-property-card-label"><%= property.price %></h4>
-  <h4 class="city-property-card-label"><%= property.address.city %></h4>
-</div>
-<%# <div>
-    <i class="fa-solid fa-bed"></i>  habitaciones 
-    <i class="fa-solid fa-bath"></i> baños
-    <i class="fa-solid fa-car"></i> cochera 
-    <i class="fa-solid fa-person-swimming"></i> piscina
-    <i class="fa-solid fa-expand"></i> area
-  <div> %>
+<%= link_to property_path(property), class: "remove-link-styles col col-12 col-md-4" do %>
+  <div class="card card-container">
+    <div>
+      <%= render 'properties/carrousel', property: property %>
+    </div>
+    <div>
+      <div class="card-icons-container">
+        <i class="fa-solid fa-bed"> <%= property.property_feature.rooms%></i> 
+        <i class="fa-solid fa-bath"> <%= property.property_feature.bathrooms%></i>
+        <i class="fa-solid fa-car"> <%= property.property_feature.parking%></i>
+        <i class="fa-solid fa-expand"> <%= property.property_feature.total_area%></i>
+      </div>
+      <div class="card-description-container">
+        <p class="card-description"><%= "#{property.kind} en #{property.operation} en 
+                #{property.address.province.capitalize}, #{property.address.city}, 
+                #{property.address.municipality} entre 
+                #{property.address.main_street} y #{property.address.secondary_street}"%></p>
+        <h4><%= property.price %> USD</h4>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= link_to property_path(property), class: "remove-link-styles col col-12 col-md-4" do %>
+  <div class="card card-container">
+    <div>
+      <%= render 'properties/carrousel', property: property %>
+    </div>
+    <div>
+      <div class="card-icons-container">
+        <i class="fa-solid fa-bed"> <%= property.property_feature.rooms%></i> 
+        <i class="fa-solid fa-bath"> <%= property.property_feature.bathrooms%></i>
+        <i class="fa-solid fa-car"> <%= property.property_feature.parking%></i>
+        <i class="fa-solid fa-expand"> <%= property.property_feature.total_area%></i>
+      </div>
+      <div class="card-description-container">
+        <p class="card-description"><%= "#{property.kind} en #{property.operation} en 
+                #{property.address.province.capitalize}, #{property.address.city}, 
+                #{property.address.municipality} entre 
+                #{property.address.main_street} y #{property.address.secondary_street}"%></p>
+        <h4><%= property.price %> USD</h4>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= link_to property_path(property), class: "remove-link-styles col col-12 col-md-4" do %>
+  <div class="card card-container">
+    <div>
+      <%= render 'properties/carrousel', property: property %>
+    </div>
+    <div>
+      <div class="card-icons-container">
+        <i class="fa-solid fa-bed"> <%= property.property_feature.rooms%></i> 
+        <i class="fa-solid fa-bath"> <%= property.property_feature.bathrooms%></i>
+        <i class="fa-solid fa-car"> <%= property.property_feature.parking%></i>
+        <i class="fa-solid fa-expand"> <%= property.property_feature.total_area%></i>
+      </div>
+      <div class="card-description-container">
+        <p class="card-description"><%= "#{property.kind} en #{property.operation} en 
+                #{property.address.province.capitalize}, #{property.address.city}, 
+                #{property.address.municipality} entre 
+                #{property.address.main_street} y #{property.address.secondary_street}"%></p>
+        <h4><%= property.price %> USD</h4>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= link_to property_path(property), class: "remove-link-styles col col-12 col-md-4" do %>
+  <div class="card card-container">
+    <div>
+      <%= render 'properties/carrousel', property: property %>
+    </div>
+    <div>
+      <div class="card-icons-container">
+        <i class="fa-solid fa-bed"> <%= property.property_feature.rooms%></i> 
+        <i class="fa-solid fa-bath"> <%= property.property_feature.bathrooms%></i>
+        <i class="fa-solid fa-car"> <%= property.property_feature.parking%></i>
+        <i class="fa-solid fa-expand"> <%= property.property_feature.total_area%></i>
+      </div>
+      <div class="card-description-container">
+        <p class="card-description"><%= "#{property.kind} en #{property.operation} en 
+                #{property.address.province.capitalize}, #{property.address.city}, 
+                #{property.address.municipality} entre 
+                #{property.address.main_street} y #{property.address.secondary_street}"%></p>
+        <h4><%= property.price %> USD</h4>
+      </div>
+    </div>
+  </div>
+<% end %>

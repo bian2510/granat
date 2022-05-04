@@ -2,9 +2,13 @@
   <div>
     <h1 class="h1 text-center">Ciudades destacadas</h1>
   </div>
-  <div class="content-section-container row justify-content-center">
-    <% ['Quito', 'Guayaquil', 'Ambato'].each do |city|%>
-      <%= render "feature_neighborhood_card", city: city%>
+  <div class="content-section-container row justify-content-around">
+    <% {
+      quito: "https://www.exoticca.com/es/blog/wp-content/uploads/2020/09/que-ver-y-hacer-en-ecuador.jpg", 
+      guayaquil: "https://la.network/wp-content/uploads/2016/10/GUAYAQUIL-ECUADOR.jpg", 
+      ambato: "https://www.culturaypatrimonio.gob.ec/wp-content/uploads/2020/04/Ambato-2.jpg"
+      }.each do |city, image|%>
+      <%= render "feature_neighborhood_card", city: city, image: image%>
     <% end %>
   </div>
 </div>

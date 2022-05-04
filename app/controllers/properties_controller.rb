@@ -1,7 +1,7 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: %i[ show edit update destroy ]
   before_action :authenticate_admin!, only: %i[ edit update destroy ]
-
+  before_action :filter_params, only: %i[ filter ]
 
   # GET /properties or /properties.json
   def index
@@ -58,6 +58,14 @@ class PropertiesController < ApplicationController
     end
   end
 
+  def filter
+    @properties = Property.search_by(filter_params)
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render :index, location: @property }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_property
@@ -67,5 +75,14 @@ class PropertiesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def property_params
       params.require(:property).permit(:name, :description, :price, :kind, :operation)
+    end
+
+    def filter_params
+      params_permited = %i[
+        province city municipality total_area year_old rooms 
+        bathrooms parking trunk bbq sport_zones gym pool
+        price kind operation main_street
+      ]
+      params.permit(params_permited)
     end
 end

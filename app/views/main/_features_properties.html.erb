@@ -2,13 +2,13 @@
   <div>
     <h1 class="h1 text-center">Propiedades destacadas</h1>
   </div>
-  <div class="content-section-container row justify-content-center">
+  <div class="content-section-container row justify-content-around">
   <%# Change 6.times to each with features properties %>
     <% @properties.each do |property| %>
       <%= render "properties/property_card", property: property%>
     <% end %>
   </div>
-  <div class="content-section-container row justify-content-center">
+  <div class="content-section-container row justify-content-around">
     <%= link_to 'Ver mas...', properties_path, class: "btn btn-primary col-12 col-md-1", role: "button"%>
   </div>
 </div>

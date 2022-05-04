@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark header-navbar">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark header-navbar fixed-top nav-font">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
     </a>
@@ -14,14 +14,9 @@
           <a id="properties" class="nav-link" href="/properties">Propiedades</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Quienes Somos</a>
+          <a id="about_us" class="nav-link" href="/about_us">Quienes Somos</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li><li class="nav-item dropdown">
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
           </a>
@@ -54,7 +49,9 @@ switch (window.location.pathname) {
     $('.active').removeClass('active');
     $('#properties').addClass('active');
     break;
-  case 'valorN':
+  case '/about_us':
+    $('.active').removeClass('active');
+    $('#about_us').addClass('active');
     //Declaraciones ejecutadas cuando el resultado de expresión coincide con valorN
     break;
   default:

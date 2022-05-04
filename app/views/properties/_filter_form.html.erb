@@ -8,70 +8,85 @@
         </h2>
         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            <form>
+            <%= form_with url: "/properties/filter", method: :get do |form| %>
               <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Canton/Provincia</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <%= form.label :province, "Canton/Provincia:", class: "form-label" %>
+                <%= form.text_field :province, class: "form-control"%>
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Ciudad</label>
-                <input type="text" class="form-control" id="exampleInputPassword1">
+                <%= form.label :city, "Ciudad:", class: "form-label" %>
+                <%= form.text_field :city, class: "form-control"%>
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Municipio</label>
-                <input type="text" class="form-control" id="exampleInputPassword1">
+                <%= form.label :municipality, "Municipio:", class: "form-label" %>
+                <%= form.text_field :municipality, class: "form-control"%>
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Calle</label>
-                <input type="text" class="form-control" id="exampleInputPassword1">
+                <%= form.label :main_street, "Calle:", class: "form-label" %>
+                <%= form.text_field :main_street, class: "form-control"%>
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Area desde</label>
-                <input type="text" class="form-control" id="exampleInputPassword1">
+                <%= form.label :kind, "Tipo de inmueble:", class: "form-label" %>
+                <%= form.text_field :kind, class: "form-control"%>
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Area hasta</label>
-                <input type="text" class="form-control" id="exampleInputPassword1">
+                <%= form.label :operation, "Operacion:", class: "form-label" %>
+                <%= form.text_field :operation, class: "form-control"%>
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Años de antiguedad</label>
-                <input type="text" class="form-control" id="exampleInputPassword1">
+                <%= form.label :price, "Precio desde:", class: "form-label" %>
+                <%= form.text_field :price, class: "form-control"%>
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Cuartos</label>
-                <input type="text" class="form-control" id="exampleInputPassword1">
+                <%= form.label :price, "Precio hasta:", class: "form-label" %>
+                <%= form.text_field :price, class: "form-control"%>
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Baños</label>
-                <input type="text" class="form-control" id="exampleInputPassword1">
+                <%= form.label :total_area, "Area desde:", class: "form-label" %>
+                <%= form.text_field :total_area, class: "form-control"%>
+              </div>
+              <div class="mb-3">
+                <%= form.label :total_area, "Area hasta:", class: "form-label" %>
+                <%= form.text_field :total_area, class: "form-control"%>
+              </div>
+              <div class="mb-3">
+                <%= form.label :year_old, "Años de antiguedad:", class: "form-label" %>
+                <%= form.text_field :year_old, class: "form-control"%>
+              </div>
+              <div class="mb-3">
+                <%= form.label :rooms, "Cuartos:", class: "form-label" %>
+                <%= form.text_field :rooms, class: "form-control"%>
+              </div>
+              <div class="mb-3">
+                <%= form.label :bathrooms, "Baños:", class: "form-label" %>
+                <%= form.text_field :bathrooms, class: "form-control"%>
+              </div>
+              <div class="mb-3">
+                <%= form.label :parking, "Estacionamiento:", class: "form-label" %>
+                <%= form.text_field :parking, class: "form-control"%>
+              </div>
+              <div class="mb-3">
+                <%= form.label :trunk, "Baulera:", class: "form-label" %>
+                <%= form.text_field :trunk, class: "form-control"%>
               </div>
               <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Estacionamiento</label>
+                <%= form.label :bbq, "BBQ:", class: "form-check-label" %>
+                <%= form.check_box :bbq, class: "form-check-input"%>
               </div>
               <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Baulera</label>
+                <%= form.label :sport_zones, "Zona de deportes:", class: "form-check-label" %>
+                <%= form.check_box :sport_zones, class: "form-check-input"%>
               </div>
               <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">BBQ</label>
+                <%= form.label :gym, "Gym:", class: "form-check-label" %>
+                <%= form.check_box :gym, class: "form-check-input"%>
               </div>
               <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Zona de deportes</label>
+                <%= form.label :pool, "Piscina:", class: "form-check-label" %>
+                <%= form.check_box :pool, class: "form-check-input"%>
               </div>
-              <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Gym</label>
-              </div>
-              <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Piscina</label>
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+              <%= form.submit "Aplicar", class: "btn btn-primary" %>
+            <% end %>
           </div>
         </div>
       </div>
