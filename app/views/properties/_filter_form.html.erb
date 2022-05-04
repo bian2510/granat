@@ -10,6 +10,23 @@
           <div class="accordion-body">
             <%= form_with url: "/properties/filter", method: :get do |form| %>
               <div class="mb-3">
+                <%= form.label :kind, "Tipo de inmueble:", class: "form-label" %>
+                <%= form.select :kind, options_for_select(
+                  [
+                    ['Casa', 'casa'], 
+                    ['Apartamento', 'apartamento'],
+                    ['Local', 'Local']
+                  ]), {}, class: "form-select" %>
+              </div>
+              <div class="mb-3">
+                <%= form.label :operation, "Operacion:", class: "form-label" %>
+                <%= form.select :operation, options_for_select(
+                  [
+                    ['Compra', 'compra'],
+                    ['Alquiler', 'alquiler']
+                  ]), {}, class: "form-select" %>
+              </div>
+              <div class="mb-3">
                 <%= form.label :province, "Canton/Provincia:", class: "form-label" %>
                 <%= form.text_field :province, class: "form-control"%>
               </div>
@@ -26,28 +43,20 @@
                 <%= form.text_field :main_street, class: "form-control"%>
               </div>
               <div class="mb-3">
-                <%= form.label :kind, "Tipo de inmueble:", class: "form-label" %>
-                <%= form.text_field :kind, class: "form-control"%>
-              </div>
-              <div class="mb-3">
-                <%= form.label :operation, "Operacion:", class: "form-label" %>
-                <%= form.text_field :operation, class: "form-control"%>
-              </div>
-              <div class="mb-3">
                 <%= form.label :price, "Precio desde:", class: "form-label" %>
-                <%= form.text_field :price, class: "form-control"%>
+                <%= form.text_field :from_price, class: "form-control"%>
               </div>
               <div class="mb-3">
-                <%= form.label :price, "Precio hasta:", class: "form-label" %>
-                <%= form.text_field :price, class: "form-control"%>
+                <%= form.label :to_price, "Precio hasta:", class: "form-label" %>
+                <%= form.text_field :to_price, class: "form-control"%>
               </div>
               <div class="mb-3">
-                <%= form.label :total_area, "Area desde:", class: "form-label" %>
-                <%= form.text_field :total_area, class: "form-control"%>
+                <%= form.label :from_total_area, "Area desde:", class: "form-label" %>
+                <%= form.text_field :from_total_area, class: "form-control"%>
               </div>
               <div class="mb-3">
-                <%= form.label :total_area, "Area hasta:", class: "form-label" %>
-                <%= form.text_field :total_area, class: "form-control"%>
+                <%= form.label :to_total_area, "Area hasta:", class: "form-label" %>
+                <%= form.text_field :to_total_area, class: "form-control"%>
               </div>
               <div class="mb-3">
                 <%= form.label :year_old, "Años de antiguedad:", class: "form-label" %>
@@ -62,11 +71,11 @@
                 <%= form.text_field :bathrooms, class: "form-control"%>
               </div>
               <div class="mb-3">
-                <%= form.label :parking, "Estacionamiento:", class: "form-label" %>
+                <%= form.label :parking, "Estacionamientos:", class: "form-label" %>
                 <%= form.text_field :parking, class: "form-control"%>
               </div>
               <div class="mb-3">
-                <%= form.label :trunk, "Baulera:", class: "form-label" %>
+                <%= form.label :trunk, "Bauleras:", class: "form-label" %>
                 <%= form.text_field :trunk, class: "form-control"%>
               </div>
               <div class="mb-3 form-check">

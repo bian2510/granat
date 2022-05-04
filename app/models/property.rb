@@ -6,50 +6,42 @@ class Property < ApplicationRecord
     has_one :property_image, dependent: :destroy
 
   def self.search_by(params)
-    property_feature = self.build_property_feature_filter(params).delete_if{|key, value| value.empty?}
-    amenity = self.build_amenity_filter(params).delete_if{|key, value| value.nil?}
-    address = self.build_address_filter(params).delete_if{|key, value| value.empty?}
-    columns = self.columns_builder(params, property_feature, amenity, address).delete_if{|key, value| value.empty?}
-    Property.joins(:property_feature, :amenity, :address).where(columns)
-
+    property_feature = self.build_property_feature_filter(params)
+    amenity = self.build_amenity_filter(params)
+    address = self.build_address_filter(params)
+    columns = self.columns_builder(params, property_feature, amenity, address)
+    Property.joins(:property_feature, :amenity, :address).where(columns).where([]).where([])
+    #["price > ?", 100000] ["price < ?", 150000]
   end
 
+  private
+
   def self.columns_builder(params, property_feature, amenity, address)
-    {
-      price: params[:price],
-      kind: params[:kind],
-      operation: params[:operation],
-      property_feature: property_feature,
-      amenity: amenity,
-      address: address
-    }
+    columns = %i[kind operation].each_with_object({}) { |key, hsh| hsh[key] = params[key].to_s }
+    columns[:property_feature] = property_feature if property_feature.present?
+    columns[:amenity] = amenity if amenity.present?
+    columns[:address] = address if address.present?
+    columns
   end
 
   def self.build_property_feature_filter(params)
-      {
-          total_area: params[:total_area],
-          year_old: params[:year_old],
-          rooms: params[:rooms],
-          bathrooms: params[:bathrooms],
-          parking: params[:parking],
-          trunk: params[:trunk],
-        }
+    %i[year_old rooms bathrooms parking trunk].each_with_object({}) do |key, hsh|
+        next if params[key].nil?
+        hsh[key] = params[key].to_i
+    end
   end
 
   def self.build_amenity_filter(params)
-      {
-          bbq: params[:bbq] === '1' ? true : nil,
-          sport_zones: params[:sport_zones] === '1' ? true : nil,
-          gym: params[:gym] === '1' ? true : nil,
-          pool: params[:pool] === '1' ? true : nil
-        }
-  end
-  def self.build_address_filter(params)
-    {
-        province: params[:province],
-        city: params[:city],
-        municipality: params[:municipality],
-        main_street: params[:main_street]
-      }
+    %i[bbq sport_zones gym pool].each_with_object({}) do |key, hsh|
+        next if params[key].nil? || params[key] == '0'
+        hsh[key] = ActiveModel::Type::Boolean.new.cast(params[key])
     end
+  end
+
+  def self.build_address_filter(params)
+    %i[province city municipality main_street].each_with_object({}) do |key, hsh|
+        next if params[key].nil?
+        hsh[key] = params[key].to_s
+    end
+  end
 end

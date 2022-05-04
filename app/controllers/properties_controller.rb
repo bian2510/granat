@@ -83,6 +83,6 @@ class PropertiesController < ApplicationController
         bathrooms parking trunk bbq sport_zones gym pool
         price kind operation main_street
       ]
-      params.permit(params_permited)
+      params.permit(params_permited).reject{|_, param| param.blank?}
     end
 end
