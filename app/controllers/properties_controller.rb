@@ -79,9 +79,9 @@ class PropertiesController < ApplicationController
 
     def filter_params
       params_permited = %i[
-        province city municipality total_area year_old rooms 
+        province city municipality from_total_area to_total_area year_old rooms 
         bathrooms parking trunk bbq sport_zones gym pool
-        price kind operation main_street
+        from_price to_price kind operation main_street
       ]
       params.permit(params_permited).reject{|_, param| param.blank?}
     end
