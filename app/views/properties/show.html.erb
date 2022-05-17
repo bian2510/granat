@@ -1,29 +1,79 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+  <h3> <%= @property.name %> </h3>
+    <div class="col-12 col-md-9">
+    <%# carrousel container %>
+      <div class="col-12">
+        <%= render 'carrousel', property: @property %>
+      </div>
+      <%# contact-container %>
+      <h3><%= @property.price %></h3>
+      <div class="col-12">
+        <i class="fa-solid fa-bed"> <%= @property.property_feature.rooms%></i> 
+        <i class="fa-solid fa-bath"> <%= @property.property_feature.bathrooms%></i>
+        <i class="fa-solid fa-car"> <%= @property.property_feature.parking%></i>
+        <i class="fa-solid fa-expand"> <%= @property.property_feature.total_area%></i>
+      </div>
+      <%# description %>
+      <div class="col-12">
+        <h5>Descripcion</h5>
+        <p>
+          <%= @property.description %>
+        </p>
+      </div>
+      <%# caracteristicas %>
+      <div class="row col-12">
+        <p>Caracteristicas</p>
+          <div class="col-12 col-md-6"><i class="fa-solid fa-expand"></i>  <%= @property.property_feature.total_area %> mts totales</div>
+          <div class="col-12 col-md-6"><i class="fa-solid fa-house-chimney"></i> <%= @property.property_feature.build_area %> mts Construidos</div>
+          <div class="col-12 col-md-6"><i class="fa-solid fa-bed"></i> <%= @property.property_feature.rooms %> cuartos</div>
+          <div class="col-12 col-md-6"><i class="fa-solid fa-bath"></i> <%= @property.property_feature.bathrooms %> baños</div>
+          <div class="col-12 col-md-6"><i class="fa-solid fa-restroom"></i> <%= @property.property_feature.social_bathrooms %> baños sociales</div>
+          <div class="col-12 col-md-6"><i class="fa-solid fa-car"></i> <%= @property.property_feature.parking %> parqueaderos</div>
+          <div class="col-12 col-md-6"><i class="fa-solid fa-box"></i> <%= @property.property_feature.trunk %> bauleras</div>
+          <div class="col-12 col-md-6"><i class="fa-solid fa-calendar-days"></i> <%= @property.property_feature.year_old %> años de antiguedad</div>
+        </p>
+        <p>Amenities</p>
+        <p>
+          <div class="col-12 col-md-6"><i class="fa-solid fa-bacon"></i> BBQ: <%= @property.amenity.bbq ? 'Si' : 'No' %></div>
+          <div class="col-12 col-md-6"><i class="fa-solid fa-futbol"></i> Zona deportiva: <%= @property.amenity.sport_zones ? 'Si' : 'No' %></div>
+          <div class="col-12 col-md-6"><i class="fa-solid fa-dumbbell"></i> Gym: <%= @property.amenity.gym ? 'Si' : 'No' %></div>
+          <div class="col-12 col-md-6"><i class="fa-solid fa-person-swimming"></i> Piscina: <%= @property.amenity.pool ? 'Si' : 'No' %></div>
+          <div class="col-12 col-md-6"><i class="fa-solid fa-people-roof"></i> SUM: <%= @property.amenity.comunal_room ? 'Si' : 'No'%></div>
+        </p>
+      </div>
+      <%# ubicacion %>
+      <div class="col-12">
 
-<p>
-  <strong>Name:</strong>
-  <%= @property.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @property.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @property.price %>
-</p>
-
-<p>
-  <strong>Kind:</strong>
-  <%= @property.kind %>
-</p>
-
-<p>
-  <strong>Operation:</strong>
-  <%= @property.operation %>
-</p>
+      </div>
+    </div>
+    <div class="col-12 col-md-3 ">
+      <h5>Pregunta por este inmueble</h5>
+      <form class="row g-3 needs-validation" novalidate>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Nombre y Apellido </label>
+          <input class="form-control" type="text" id='exampleFormControlInput1' placeholder="Pedro Perez" aria-label="default input example" required>
+        </div>    
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Telefono</label>
+          <input class="form-control" type="text" id='exampleFormControlInput1' placeholder="1122554477" aria-label="default input example" required>
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Email</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nombre@gmail.com" required>
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Mensaje</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+        </div>
+        <div class="mb-3">
+          <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
 <% if admin_signed_in? %>
   <%= link_to 'Edit', edit_property_path(@property) %> |
 <% end %>
