@@ -24,6 +24,9 @@ class AddressesController < ApplicationController
   # POST /addresses or /addresses.json
   def create
     @address = Address.new(address_params)
+    coordinates = Geocoder.search(@address.full_address).first.coordinates
+    @address.latitude = coordinates[0]
+    @address.longitude = coordinates[1]
     respond_to do |format|
       if @address.save
         format.html { redirect_to new_amenity_path(property_id: @address.property_id), notice: "Property was successfully created." }
