@@ -61,10 +61,18 @@
 
 /* Carrousel */
 .background-covr {
-  width: 400px;
-  height: 300px;
+  width: 100%;
   float: left;
   object-fit: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 500px;
+}
+
+.carrousel-index-container .background-covr {
+  height: 300px;
+  width: 400px;
 }
 
 /* Common */

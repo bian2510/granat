@@ -44,12 +44,13 @@
       </div>
       <%# ubicacion %>
       <div class="col-12">
-
+        <iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps/place?output=embed&z=16&t=m&q=loc:<%= @property.address.latitude %>+<%= @property.address.longitude %>">
+        </iframe>
       </div>
     </div>
     <%# contact-container %>
     <div class="col-12 col-md-3 ">
-      <h5>Pregunta por este inmueble</h5>
+      <h5>Envianos un mensaje:</h5>
       <form class="row g-3 needs-validation" novalidate>
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Nombre y Apellido </label>

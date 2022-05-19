@@ -24,9 +24,7 @@ class AddressesController < ApplicationController
   # POST /addresses or /addresses.json
   def create
     @address = Address.new(address_params)
-    coordinates = Geocoder.search(@address.full_address).first.coordinates
-    @address.latitude = coordinates[0]
-    @address.longitude = coordinates[1]
+    set_coordinates(@address)
     respond_to do |format|
       if @address.save
         format.html { redirect_to new_amenity_path(property_id: @address.property_id), notice: "Property was successfully created." }
@@ -42,8 +40,10 @@ class AddressesController < ApplicationController
   # PATCH/PUT /addresses/1 or /addresses/1.json
   def update
     @address = Address.find_by(property_id: params.require(:address)["property_id"])
+    @address.assign_attributes(address_params)
+    set_coordinates(@address)
     respond_to do |format|
-      if @address.update(address_params)
+      if @address.save
         format.html { redirect_to edit_amenity_path(property_id: @address.property_id), notice: "Address was successfully updated." }
         format.json { render :show, status: :ok, location: @address }
       else
@@ -70,6 +70,12 @@ class AddressesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def address_params
-      params.require(:address).permit(:province, :city, :municipality, :main_street, :secondary_street, :property_id)
+      params.require(:address).permit(:province, :city, :municipality, :main_street, :number, :secondary_street, :property_id)
+    end
+
+    def set_coordinates(address)
+      coordinates   = Geocoder.search(address.full_address).first.coordinates
+      address.latitude = coordinates[0]
+      address.longitude = coordinates[1]
     end
 end
