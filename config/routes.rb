@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/about_us', to: 'main#about_us'
 
   get '/properties/filter', to: 'properties#filter'
+
+  post '/mailer/contact', to: 'mailer#contact'
   
   resources :properties
   resources :addresses

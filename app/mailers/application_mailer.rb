@@ -2,8 +2,9 @@ class ApplicationMailer < ActionMailer::Base
   default from: 'granatest01@gmail.com'
   layout 'mailer'
 
-  def welcome_email
+  def contact_email
     @user = params[:user]
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+    @property = params[:property]
+    mail(to: @user['email'], subject: 'Solicitan informacion del inmueble')
   end
 end

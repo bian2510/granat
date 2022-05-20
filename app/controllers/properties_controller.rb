@@ -27,7 +27,6 @@ class PropertiesController < ApplicationController
     @property.admin_id = current_admin.id
     respond_to do |format|
       if @property.save
-        UserMailer.with(user: current_admin).welcome_email.deliver_later
         format.html { redirect_to new_property_feature_path(property_id: @property.id), notice: "Property was successfully created." }
         format.json { render :show, status: :created, location: @property }
       else

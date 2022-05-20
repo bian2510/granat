@@ -49,30 +49,7 @@
       </div>
     </div>
     <%# contact-container %>
-    <div class="col-12 col-md-3 ">
-      <h5>Envianos un mensaje:</h5>
-      <form class="row g-3 needs-validation" novalidate>
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Nombre y Apellido </label>
-          <input class="form-control" type="text" id='exampleFormControlInput1' placeholder="Pedro Perez" aria-label="default input example" required>
-        </div>    
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Telefono</label>
-          <input class="form-control" type="text" id='exampleFormControlInput1' placeholder="1122554477" aria-label="default input example" required>
-        </div>
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Email</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nombre@gmail.com" required>
-        </div>
-        <div class="mb-3">
-          <label for="exampleFormControlTextarea1" class="form-label">Mensaje</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
-        </div>
-        <div class="mb-3">
-          <button class="btn btn-primary" type="submit">Enviar mensaje</button>
-          </div>
-      </form>
-    </div>
+    <%= render 'mailer/contact_form', property: @property %>
   </div>
 </div>
 <% if admin_signed_in? %>

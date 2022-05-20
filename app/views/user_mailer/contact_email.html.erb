@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hola, <%= @property.admin.email %></h1>
+    <p>
+      Tu tienes un mensaje de <%= @user['fullname'] %> por la propiedad <%= @property.name %>
+    </p>
+    <p>
+      Mensaje:
+
+      <%= @user['message'] %>.
+      
+      <%= @user['fullname'] %><br>
+      <%= @user['email'] %>.<br>
+    </p>
+  </body>
+</html>
