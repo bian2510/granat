@@ -11,32 +11,27 @@
             <%= form_with url: "/properties/filter", method: :get do |form| %>
               <div class="mb-3">
                 <%= form.label :kind, "Tipo de inmueble:", class: "form-label" %>
-                <%= form.select :kind, options_for_select(
-                  [
-                    ['Casa', 'casa'], 
-                    ['Apartamento', 'apartamento'],
-                    ['Local', 'Local']
-                  ]), {}, class: "form-select" %>
+                <%= form.select :kind, options_for_select(kind), {}, class: "form-select" %>
               </div>
               <div class="mb-3">
                 <%= form.label :operation, "Operacion:", class: "form-label" %>
-                <%= form.select :operation, options_for_select(
-                  [
-                    ['Compra', 'compra'],
-                    ['Alquiler', 'alquiler']
-                  ]), {}, class: "form-select" %>
+                <%= form.select :operation, options_for_select(operations), {}, class: "form-select" %>
               </div>
               <div class="mb-3">
                 <%= form.label :province, "Canton/Provincia:", class: "form-label" %>
-                <%= form.text_field :province, class: "form-control"%>
+                <%= form.select :province, options_for_select(provinces), {}, class: "form-select" %>
               </div>
               <div class="mb-3">
                 <%= form.label :city, "Ciudad:", class: "form-label" %>
                 <%= form.text_field :city, class: "form-control"%>
               </div>
               <div class="mb-3">
-                <%= form.label :municipality, "Municipio:", class: "form-label" %>
-                <%= form.text_field :municipality, class: "form-control"%>
+                <%= form.label :municipality, "Municipalidad:", class: "form-label" %>
+                <%= form.select :municipality, options_for_select(neighboords[:caba]), {}, class: "form-select" %>
+              </div>
+              <div class="mb-3">
+                <%= form.label :neighborhood, "Barrio:", class: "form-label" %>
+                <%= form.select :neighborhood, options_for_select(neighboords[:caba]), {}, class: "form-select" %>
               </div>
               <div class="mb-3">
                 <%= form.label :main_street, "Calle:", class: "form-label" %>

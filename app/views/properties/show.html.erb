@@ -1,50 +1,56 @@
-<p id="notice"><%= notice %></p>
-<div class="container">
-  <div class="row">
-  <h3> <%= @property.name %> </h3>
-    <div class="col-12 col-md-9">
+<p id='notice'><%= notice %></p>
+<div class='container'>
+  <div class='row'>
+    <div class='col-12 col-md-9'>
+      <h3> <%= @property.name %> </h3>
     <%# carrousel container %>
-      <div class="col-12">
+      <div class='col-12 property-sections-carrousel-container'>
         <%= render 'carrousel', property: @property %>
-      </div>
-      <div class="col-12 property-sections-container">
-        <h3><%= @property.price %></h3>
-        <i class="fa-solid fa-bed"> <%= @property.property_feature.rooms%></i> 
-        <i class="fa-solid fa-bath"> <%= @property.property_feature.bathrooms%></i>
-        <i class="fa-solid fa-car"> <%= @property.property_feature.parking%></i>
-        <i class="fa-solid fa-expand"> <%= @property.property_feature.total_area%></i>
+        <div class='property-sections-carrousel-container property-sections-container'>
+          <h3><%= number_with_precision(@property.price, :precision => 0, :delimiter => ',') %></h3>
+          <div class='card-icons-container'>
+            <i class='fa-solid fa-bed'> <%= @property.property_feature.rooms%></i> 
+            <i class='fa-solid fa-bath'> <%= @property.property_feature.bathrooms%></i>
+            <i class='fa-solid fa-car'> <%= @property.property_feature.parking%></i>
+            <i class='fa-solid fa-expand'> <%= @property.property_feature.total_area%></i>
+          </div>
+        </div>
       </div>
       <%# description %>
-      <div class="col-12 property-sections-container">
+      <div class='col-12 property-sections-container'>
         <h5>Descripcion</h5>
         <p>
           <%= @property.description %>
         </p>
       </div>
       <%# caracteristicas %>
-      <div class="row col-12 property-sections-container">
+      <div class='row col-12 property-sections-container'>
         <p>Caracteristicas</p>
-          <div class="col-12 col-md-6"><i class="fa-solid fa-expand"></i>  <%= @property.property_feature.total_area %> mts totales</div>
-          <div class="col-12 col-md-6"><i class="fa-solid fa-house-chimney"></i> <%= @property.property_feature.build_area %> mts Construidos</div>
-          <div class="col-12 col-md-6"><i class="fa-solid fa-bed"></i> <%= @property.property_feature.rooms %> cuartos</div>
-          <div class="col-12 col-md-6"><i class="fa-solid fa-bath"></i> <%= @property.property_feature.bathrooms %> baños</div>
-          <div class="col-12 col-md-6"><i class="fa-solid fa-restroom"></i> <%= @property.property_feature.social_bathrooms %> baños sociales</div>
-          <div class="col-12 col-md-6"><i class="fa-solid fa-car"></i> <%= @property.property_feature.parking %> parqueaderos</div>
-          <div class="col-12 col-md-6"><i class="fa-solid fa-box"></i> <%= @property.property_feature.trunk %> bauleras</div>
-          <div class="col-12 col-md-6"><i class="fa-solid fa-calendar-days"></i> <%= @property.property_feature.year_old %> años de antiguedad</div>
+          <div class='col-12 col-md-6'><i class='fa-solid fa-expand'></i>  <%= @property.property_feature.total_area %> mts totales</div>
+          <div class='col-12 col-md-6'><i class='fa-solid fa-house-chimney'></i> <%= @property.property_feature.build_area %> mts construidos</div>
+          <div class='col-12 col-md-6'><i class='fa-solid fa-bed'></i> <%= @property.property_feature.rooms %> cuartos</div>
+          <div class='col-12 col-md-6'><i class='fa-solid fa-bath'></i> <%= @property.property_feature.bathrooms %> baños</div>
+          <div class='col-12 col-md-6'><i class='fa-solid fa-restroom'></i> <%= @property.property_feature.social_bathrooms %> baños sociales</div>
+          <div class='col-12 col-md-6'><i class='fa-solid fa-car'></i> <%= @property.property_feature.parking %> parqueaderos</div>
+          <div class='col-12 col-md-6'><i class='fa-solid fa-box'></i> <%= @property.property_feature.trunk %> bauleras</div>
+          <div class='col-12 col-md-6'><i class='fa-solid fa-calendar-days'></i> <%= @property.property_feature.year_old %> años de antiguedad</div>
         </p>
         <p>Amenities</p>
         <p>
-          <div class="col-12 col-md-6"><i class="fa-solid fa-bacon"></i> BBQ: <%= @property.amenity.bbq ? 'Si' : 'No' %></div>
-          <div class="col-12 col-md-6"><i class="fa-solid fa-futbol"></i> Zona deportiva: <%= @property.amenity.sport_zones ? 'Si' : 'No' %></div>
-          <div class="col-12 col-md-6"><i class="fa-solid fa-dumbbell"></i> Gym: <%= @property.amenity.gym ? 'Si' : 'No' %></div>
-          <div class="col-12 col-md-6"><i class="fa-solid fa-person-swimming"></i> Piscina: <%= @property.amenity.pool ? 'Si' : 'No' %></div>
-          <div class="col-12 col-md-6"><i class="fa-solid fa-people-roof"></i> SUM: <%= @property.amenity.comunal_room ? 'Si' : 'No'%></div>
+          <div class='col-12 col-md-6'><i class='fa-solid fa-bacon'></i> BBQ: <%= @property.amenity.bbq ? 'Si' : 'No' %></div>
+          <div class='col-12 col-md-6'><i class='fa-solid fa-futbol'></i> Zona deportiva: <%= @property.amenity.sport_zones ? 'Si' : 'No' %></div>
+          <div class='col-12 col-md-6'><i class='fa-solid fa-dumbbell'></i> Gym: <%= @property.amenity.gym ? 'Si' : 'No' %></div>
+          <div class='col-12 col-md-6'><i class='fa-solid fa-person-swimming'></i> Piscina: <%= @property.amenity.pool ? 'Si' : 'No' %></div>
+          <div class='col-12 col-md-6'><i class='fa-solid fa-people-roof'></i> SUM: <%= @property.amenity.comunal_room ? 'Si' : 'No'%></div>
         </p>
       </div>
       <%# ubicacion %>
-      <div class="col-12">
-        <iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps/place?output=embed&z=16&t=m&q=loc:<%= @property.address.latitude %>+<%= @property.address.longitude %>">
+      <div class='col-12'>
+        <div class='property-sections-container'>
+          <p><%= "#{@property.address.main_street.capitalize} #{@property.address.number}, 
+                  #{@property.address.neighborhood.capitalize}, #{@property.address.city.capitalize}"%></p>
+        </div>
+        <iframe width='100%' height='600' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='http://maps.google.com/maps/place?output=embed&z=16&t=m&q=loc:<%= @property.address.latitude %>+<%= @property.address.longitude %>'>
         </iframe>
       </div>
     </div>

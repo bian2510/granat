@@ -23,7 +23,12 @@
 
   <div class="field">
     <%= form.label :municipality %>
-    <%= form.text_field :municipality %>
+    <%= form.select :municipality, options_for_select(neighboords[:caba]), {}, class: "form-select" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :neighborhood %>
+    <%= form.select :neighborhood, options_for_select(neighboords[:caba]), {}, class: "form-select" %>
   </div>
 
   <div class="field">

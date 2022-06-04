@@ -70,7 +70,7 @@ class AddressesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def address_params
-      params.require(:address).permit(:province, :city, :municipality, :main_street, :number, :secondary_street, :property_id)
+      params.require(:address).permit(:province, :city, :municipality, :neighborhood, :main_street, :number, :secondary_street, :property_id)
     end
 
     def set_coordinates(address)

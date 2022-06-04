@@ -3,19 +3,19 @@
     <div class="carrousel-index-container">
       <%= render 'properties/carrousel', property: property %>
     </div>
-    <div>
+    <div class='card-description-container'>
       <div class="card-icons-container">
         <i class="fa-solid fa-bed"> <%= property.property_feature.rooms%></i> 
         <i class="fa-solid fa-bath"> <%= property.property_feature.bathrooms%></i>
         <i class="fa-solid fa-car"> <%= property.property_feature.parking%></i>
         <i class="fa-solid fa-expand"> <%= property.property_feature.total_area%></i>
       </div>
-      <div class="card-description-container">
-        <p class="card-description"><%= "#{property.kind} en #{property.operation} en 
-                #{property.address.province.capitalize}, #{property.address.city}, 
-                #{property.address.municipality} entre 
-                #{property.address.main_street} y #{property.address.secondary_street}"%></p>
-        <h4><%= property.price %> USD</h4>
+      <div>
+        <p class="card-description"><%= "#{property.name.capitalize} en #{property.operation} en 
+                #{property.address.province}, #{property.address.city}, 
+                #{property.address.municipality},
+                #{property.address.main_street} #{property.address.number}"%></p>
+        <h4><%= number_with_precision(property.price, :precision => 0, :delimiter => ',') %></h4>
       </div>
     </div>
   </div>

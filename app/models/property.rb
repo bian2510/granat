@@ -8,7 +8,6 @@ class Property < ApplicationRecord
   def self.search_by(params)
     columns = self.columns_builder(params)
     others_conditions = self.greater_less_conditions(params)
-    byebug
     Property.joins(
         :property_feature, :amenity, :address
     ).where(columns).where(
