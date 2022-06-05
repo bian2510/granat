@@ -1,0 +1,27 @@
+<p>
+  <h5>Caracteristicas</h5>
+  <% if property_feature.total_area > 0 %>
+    <div class='col-12 col-md-6'><i class='fa-solid fa-expand'></i>  <%= property_feature.total_area %> mts totales</div>
+  <% end %>
+  <% if property_feature.build_area > 0 %>
+      <div class='col-12 col-md-6'><i class='fa-solid fa-house-chimney'></i> <%= property_feature.build_area %> mts construidos</div>
+  <% end %>
+  <% if property_feature.rooms > 0 %>
+    <div class='col-12 col-md-6'><i class='fa-solid fa-bed'></i> <%= property_feature.rooms %> cuartos</div>
+  <% end %>
+  <% if property_feature.bathrooms > 0 %>
+    <div class='col-12 col-md-6'><i class='fa-solid fa-bath'></i> <%= property_feature.bathrooms %> baños</div>
+  <% end %>
+  <% if property_feature.social_bathrooms > 0 %>
+    <div class='col-12 col-md-6'><i class='fa-solid fa-restroom'></i> <%= property_feature.social_bathrooms %> baños sociales</div>
+  <% end %>
+  <% if property_feature.parking > 0 %>
+    <div class='col-12 col-md-6'><i class='fa-solid fa-car'></i> <%= property_feature.parking %> parqueaderos</div>    
+  <% end %>
+  <% if property_feature.trunk > 0 %>
+    <div class='col-12 col-md-6'><i class='fa-solid fa-box'></i> <%= property_feature.trunk %> bauleras</div>    
+  <% end %>
+  <% if property_feature.year_old > 0 %>
+    <div class='col-12 col-md-6'><i class='fa-solid fa-calendar-days'></i> <%= property_feature.year_old %> años de antiguedad</div>    
+  <% end %>
+</p>

@@ -15,7 +15,7 @@
                 #{property.address.province}, #{property.address.city}, 
                 #{property.address.municipality},
                 #{property.address.main_street} #{property.address.number}"%></p>
-        <h4><%= number_with_precision(property.price, :precision => 0, :delimiter => ',') %></h4>
+        <h4><%= price_formated(property) %></h4>
       </div>
     </div>
   </div>
