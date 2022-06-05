@@ -33,8 +33,10 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'jquery-turbolinks'
 
-#Complete geocoding solution to get coordinates.
+# Complete geocoding solution to get coordinates.
 gem 'geocoder', '~> 1.3', '>= 1.3.7'
+
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

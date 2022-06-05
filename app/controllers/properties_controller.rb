@@ -5,7 +5,7 @@ class PropertiesController < ApplicationController
 
   # GET /properties or /properties.json
   def index
-    @properties = Property.includes(:property_feature).all
+    @properties = Property.all.includes([:property_feature, :address]).page(params[:page])
   end
 
   # GET /properties/1 or /properties/1.json
@@ -74,7 +74,7 @@ class PropertiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def property_params
-      params.require(:property).permit(:name, :description, :price, :currency, :kind, :operation)
+      params.require(:property).permit(:name, :description, :price, :currency, :kind, :operation, :page)
     end
 
     def filter_params
