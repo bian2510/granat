@@ -4,6 +4,7 @@ class Address < ApplicationRecord
   #after_validation :geocode
 
   def full_address
-    [main_street, number, neighborhood, municipality, city, province].compact.join(', ')
+    params = ["#{main_street} #{number}", neighborhood, municipality, city, province]
+    params.reject { |c| c.empty? }.compact.join(', ')
   end
 end

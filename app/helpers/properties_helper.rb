@@ -4,10 +4,11 @@ module PropertiesHelper
   end
 
   # Enums
-  
+
   def neighboords    
     {
        caba: [
+         ['Seleccione', nil],
          ['Agronomía', 'agronomia'],
          ['Almagro', 'almagro'],
          ['Balvanera', 'balvanera'],
@@ -62,6 +63,7 @@ module PropertiesHelper
  
    def provinces
      [
+         ['Seleccione', nil],
          ['Buenos Aires', 'buenos aires'],
          ['Caba', 'caba'],
          ['Catamarca', 'catamarca'],
@@ -91,6 +93,7 @@ module PropertiesHelper
  
    def operations
      [
+       ['Seleccione', nil],
        ['Compra', 'venta'],
        ['Alquiler', 'alquiler']
      ]
@@ -98,6 +101,7 @@ module PropertiesHelper
  
    def kind
      [
+       ['Seleccione', nil],
        ['Casa', 'casa'], 
        ['Apartamento', 'apartamento'],
        ['Local', 'Local']

@@ -23,8 +23,10 @@ class Property < ApplicationRecord
     property_feature = self.build_property_feature_filter(params)
     amenity = self.build_amenity_filter(params)
     address = self.build_address_filter(params)
-
-    columns = %i[kind operation].each_with_object({}) { |key, hsh| hsh[key] = params[key].to_s }
+    columns = %i[kind operation].each_with_object({}) do |key, hsh| 
+      next if params[key].nil?
+      hsh[key] = params[key].to_s 
+    end
     columns[:property_feature] = property_feature if property_feature.present?
     columns[:amenity] = amenity if amenity.present?
     columns[:address] = address if address.present?
