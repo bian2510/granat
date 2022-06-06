@@ -44,6 +44,8 @@ group :development, :test do
   # Brings the RSpec testing framework to Ruby on Rails
   gem 'rspec-rails', '~> 5.0.0'
   gem 'rexml', '~> 3.2', '>= 3.2.4'
+  # Shim to load environment variables from .env into ENV in development
+  gem 'dotenv-rails'
 end
 
 group :development do

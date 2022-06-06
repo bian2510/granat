@@ -5,7 +5,7 @@ class PropertiesController < ApplicationController
 
   # GET /properties or /properties.json
   def index
-    @properties = Property.all.includes([:property_feature, :address]).page(params[:page])
+    @properties = Property.all.includes([:address, :amenity, :property_feature, :property_image]).page(params[:page])
   end
 
   # GET /properties/1 or /properties/1.json
