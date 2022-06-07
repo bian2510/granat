@@ -4,12 +4,7 @@
       <%= render 'properties/partials/carrousel', property: property %>
     </div>
     <div class='card-description-container'>
-      <div class="card-icons-container">
-        <i class="fa-solid fa-bed"> <%= property.property_feature.rooms%></i> 
-        <i class="fa-solid fa-bath"> <%= property.property_feature.bathrooms%></i>
-        <i class="fa-solid fa-car"> <%= property.property_feature.parking%></i>
-        <i class="fa-solid fa-expand"> <%= property.property_feature.total_area%></i>
-      </div>
+      <%= render 'property_features/partials/icons_container', property_feature: property.property_feature %>
       <div>
         <p class="card-description">
           <%= "#{property.kind.capitalize} en #{property.operation} en 

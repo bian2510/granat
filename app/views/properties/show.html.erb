@@ -8,12 +8,7 @@
         <%= render 'properties/partials/carrousel', property: @property %>
         <div class='property-sections-carrousel-container property-sections-container'>
           <h3><%= price_formated(@property) %></h3>
-          <div class='card-icons-container'>
-            <i class='fa-solid fa-bed'> <%= @property.property_feature.rooms%></i> 
-            <i class='fa-solid fa-bath'> <%= @property.property_feature.bathrooms%></i>
-            <i class='fa-solid fa-car'> <%= @property.property_feature.parking%></i>
-            <i class='fa-solid fa-expand'> <%= @property.property_feature.total_area%></i>
-          </div>
+          <%= render 'property_features/partials/icons_container', property_feature: @property.property_feature %>
         </div>
       </div>
       <%# description %>
