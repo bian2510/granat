@@ -1,6 +1,7 @@
 class MailerController < ApplicationController
   def contact
     property = Property.find(params[:id])
+    # TODO: Change to ajax and return a bubble
     response = UserMailer.with(user: contact_params, property: property).contact_email.deliver_now
     if response.deliver
         redirect_to property_path(property.id), notice: "Mensaje enviado satisfactoriamente."

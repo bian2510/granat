@@ -1,7 +1,7 @@
 <%= link_to property_path(property), class: "remove-link-styles col col-12 col-md-4" do %>
   <div class="card card-container">
     <div class="carrousel-index-container">
-      <%= render 'properties/carrousel', property: property %>
+      <%= render 'properties/partials/carrousel', property: property %>
     </div>
     <div class='card-description-container'>
       <div class="card-icons-container">
@@ -11,10 +11,14 @@
         <i class="fa-solid fa-expand"> <%= property.property_feature.total_area%></i>
       </div>
       <div>
-        <p class="card-description"><%= "#{property.name.capitalize} en #{property.operation} en 
-                #{property.address.province}, #{property.address.city}, 
-                #{property.address.municipality},
-                #{property.address.main_street} #{property.address.number}"%></p>
+        <p class="card-description">
+          <%= "#{property.kind.capitalize} en #{property.operation} en 
+               #{property.address.city},
+               #{property.address.neighborhood},
+               #{property.address.main_street} 
+               #{property.address.number}".truncate(150)
+          %>
+        </p>
         <h4><%= price_formated(property) %></h4>
       </div>
     </div>

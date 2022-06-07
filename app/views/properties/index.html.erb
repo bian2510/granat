@@ -6,7 +6,7 @@
   <div class="col-md-10 properties-container">
     <div class="row justify-content-center">
       <% @properties.each do |property| %>
-            <%= render "properties/property_card", property: property%>
+            <%= render "properties/partials/property_card", property: property%>
       <% end %>
     </div>
   </div>

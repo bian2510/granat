@@ -49,7 +49,7 @@ class Property < ApplicationRecord
   end
 
   def self.build_address_filter(params)
-    %i[province city municipality main_street].each_with_object({}) do |key, hsh|
+    %i[province city municipality neighborhood main_street].each_with_object({}) do |key, hsh|
         next if params[key].nil?
         hsh[key] = params[key].to_s
     end

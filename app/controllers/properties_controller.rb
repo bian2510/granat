@@ -59,10 +59,10 @@ class PropertiesController < ApplicationController
   end
 
   def filter
-    @properties = Property.search_by(filter_params)
+    @properties = Property.search_by(filter_params).page(params[:page])
     respond_to do |format|
       format.html { render :index }
-      format.json { render :index, location: @property }
+      format.json { render :index, location: @properties }
     end
   end
 
@@ -79,7 +79,7 @@ class PropertiesController < ApplicationController
 
     def filter_params
       params_permited = %i[
-        province city municipality from_total_area to_total_area year_old rooms 
+        province city municipality neighborhood from_total_area to_total_area year_old rooms 
         bathrooms parking trunk bbq sport_zones gym pool
         from_price to_price kind operation main_street
       ]

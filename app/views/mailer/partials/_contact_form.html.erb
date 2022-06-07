@@ -1,6 +1,7 @@
 <div class='col-12 col-md-3'>
   <div class='contact-form-container'>
     <h5>Envianos un mensaje:</h5>
+    <%# Change to ajax and return a bubble %>
     <%= form_with url: '/mailer/contact', class: 'row g-3 needs-validation', method: :post do |form| %>
       <div class='mb-3'>
         <%= form.label :fullname, 'Nombre y Apellido:', class: 'form-label' %>

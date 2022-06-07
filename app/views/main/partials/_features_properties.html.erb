@@ -5,7 +5,7 @@
   <div class="content-section-container row justify-content-around">
   <%# Change 6.times to each with features properties %>
     <% @properties.each do |property| %>
-      <%= render "properties/property_card", property: property%>
+      <%= render "properties/partials/property_card", property: property%>
     <% end %>
   </div>
   <div class="content-section-container row justify-content-around">

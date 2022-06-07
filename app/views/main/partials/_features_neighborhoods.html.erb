@@ -1,0 +1,14 @@
+<div class="container">
+  <div>
+    <h1 class="h1 text-center">Barrios destacados</h1>
+  </div>
+  <div class="content-section-container row justify-content-around">
+    <% {
+      'caballito': "https://www.exoticca.com/es/blog/wp-content/uploads/2020/09/que-ver-y-hacer-en-ecuador.jpg", 
+      'monte castro': "https://la.network/wp-content/uploads/2016/10/GUAYAQUIL-ECUADOR.jpg", 
+      'recoleta': "https://www.culturaypatrimonio.gob.ec/wp-content/uploads/2020/04/Ambato-2.jpg"
+      }.each do |neighborhood, image|%>
+        <%= render "/main/partials/feature_neighborhood_card", neighborhood: neighborhood, image: image%>
+    <% end %>
+  </div>
+</div>

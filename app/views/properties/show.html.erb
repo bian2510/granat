@@ -5,7 +5,7 @@
       <h3> <%= @property.name %> </h3>
     <%# carrousel container %>
       <div class='col-12 property-sections-carrousel-container'>
-        <%= render 'carrousel', property: @property %>
+        <%= render 'properties/partials/carrousel', property: @property %>
         <div class='property-sections-carrousel-container property-sections-container'>
           <h3><%= price_formated(@property) %></h3>
           <div class='card-icons-container'>
@@ -25,7 +25,7 @@
       </div>
       <%# caracteristicas %>
       <div class='row col-12 property-sections-container'>
-        <%= render 'property_features/features', property_feature: @property.property_feature %>
+        <%= render 'property_features/partials/features', property_feature: @property.property_feature %>
         <p>
           <h5>Amenities</h5>
           <div class='col-12 col-md-6'><i class='fa-solid fa-bacon'></i> BBQ: <%= @property.amenity.bbq ? 'Si' : 'No' %></div>
@@ -47,7 +47,7 @@
       </div>
     </div>
     <%# contact-container %>
-    <%= render 'mailer/contact_form', property: @property %>
+    <%= render 'mailer/partials/contact_form', property: @property %>
   </div>
 </div>
 <% if admin_signed_in? %>
