@@ -2,15 +2,22 @@
 <div class='container'>
   <div class='row'>
     <div class='col-12 col-md-9'>
-      <h3> <%= @property.name %> </h3>
     <%# carrousel container %>
       <div class='col-12 property-sections-carrousel-container'>
         <%= render 'properties/partials/carrousel', property: @property %>
         <div class='property-sections-carrousel-container property-sections-container'>
           <h3><%= price_formated(@property) %></h3>
           <%= render 'property_features/partials/icons_container', property_feature: @property.property_feature %>
+          <%# address %>
+          <div class='address-property-container'>
+            <%= 
+              "#{@property.address.main_street.capitalize} #{@property.address.number}, 
+               #{@property.address.neighborhood.capitalize}, #{@property.address.city.capitalize}"
+            %>
+          </div>
         </div>
       </div>
+
       <%# description %>
       <div class='col-12 property-sections-container'>
         <h5>Descripcion</h5>
@@ -30,13 +37,8 @@
           <div class='col-12 col-md-6'><i class='fa-solid fa-people-roof'></i> SUM: <%= @property.amenity.comunal_room ? 'Si' : 'No'%></div>
         </p>
       </div>
-      <%# ubicacion %>
+      <%# map %>
       <div class='col-12'>
-        <div class='property-sections-container'>
-                  <h5>Direccion</h5>
-          <p><%= "#{@property.address.main_street.capitalize} #{@property.address.number}, 
-                  #{@property.address.neighborhood.capitalize}, #{@property.address.city.capitalize}"%></p>
-        </div>
         <iframe width='100%' height='600' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='http://maps.google.com/maps/place?output=embed&z=16&t=m&q=loc:<%= @property.address.latitude %>+<%= @property.address.longitude %>'>
         </iframe>
       </div>

@@ -17,18 +17,18 @@
                 <%= form.label :operation, "Operacion:", class: "form-label" %>
                 <%= form.select :operation, options_for_select(operations), {}, class: "form-select" %>
               </div>
-              <div class="mb-3">
-                <%= form.label :province, "Canton/Provincia:", class: "form-label" %>
-                <%= form.select :province, options_for_select(provinces), {}, class: "form-select" %>
-              </div>
-              <div class="mb-3">
-                <%= form.label :city, "Ciudad:", class: "form-label" %>
-                <%= form.text_field :city, class: "form-control"%>
-              </div>
-              <div class="mb-3">
-                <%= form.label :municipality, "Municipalidad:", class: "form-label" %>
-                <%= form.select :municipality, options_for_select(neighboords[:caba]), {}, class: "form-select" %>
-              </div>
+<%#               <div class="mb-3"> %>
+<%#                 <%= form.label :province, "Canton/Provincia:", class: "form-label" %>
+<%#                 <%= form.select :province, options_for_select(provinces), {}, class: "form-select" %>
+<%#               </div>
+              <div class="mb-3"> %>
+<%#                 <%= form.label :city, "Ciudad:", class: "form-label" %>
+<%#                 <%= form.text_field :city, class: "form-control"%>
+<%#               </div>
+              <div class="mb-3"> %>
+<%#                 <%= form.label :municipality, "Municipalidad:", class: "form-label" %>
+<%#                 <%= form.select :municipality, options_for_select(neighboords[:caba]), {}, class: "form-select" %>
+<%#               </div> %>
               <div class="mb-3">
                 <%= form.label :neighborhood, "Barrio:", class: "form-label" %>
                 <%= form.select :neighborhood, options_for_select(neighboords[:caba]), {}, class: "form-select" %>
@@ -38,41 +38,78 @@
                 <%= form.text_field :main_street, class: "form-control"%>
               </div>
               <div class="mb-3">
-                <%= form.label :price, "Precio desde:", class: "form-label" %>
-                <%= form.text_field :from_price, class: "form-control"%>
+                <div class='row'>
+                  <%= form.label :price, "Precio:", class: "form-label" %>
+                  <div class='w-50'>
+                    <%= form.text_field :from_price, class: "form-control", placeholder: 'Desde'%>
+                  </div> 
+                  <div class='w-50'>
+                    <%= form.text_field :to_price, class: "form-control", placeholder: 'Hasta'%>
+                  </div>
+                </div>  
               </div>
               <div class="mb-3">
-                <%= form.label :to_price, "Precio hasta:", class: "form-label" %>
-                <%= form.text_field :to_price, class: "form-control"%>
               </div>
               <div class="mb-3">
-                <%= form.label :from_total_area, "Area desde:", class: "form-label" %>
-                <%= form.text_field :from_total_area, class: "form-control"%>
-              </div>
-              <div class="mb-3">
-                <%= form.label :to_total_area, "Area hasta:", class: "form-label" %>
-                <%= form.text_field :to_total_area, class: "form-control"%>
+                <div class='row'>
+                  <%= form.label :price, "Area:", class: "form-label" %>
+                  <div class='w-50'>
+                    <%= form.text_field :from_total_area, class: "form-control", placeholder: 'Desde'%>
+                  </div>
+                  <div class='w-50'>
+                    <%= form.text_field :to_total_area, class: "form-control", placeholder: 'Hasta'%>
+                  </div>
+                </div>
               </div>
               <div class="mb-3">
                 <%= form.label :year_old, "Años de antiguedad:", class: "form-label" %>
                 <%= form.text_field :year_old, class: "form-control"%>
               </div>
               <div class="mb-3">
-                <%= form.label :rooms, "Cuartos:", class: "form-label" %>
-                <%= form.text_field :rooms, class: "form-control"%>
+                <%= form.label "Cuartos:", class: "form-label" %>
+                <div>
+                  <%= form.check_box :rooms_1, class: "form-check-input"%>
+                  <%= label_tag :rooms, "1", class: 'me-2' %>
+                  <%= form.check_box :rooms_2, class: "form-check-input"%>
+                  <%= label_tag :rooms, "2", class: 'me-2' %>
+                  <%= form.check_box :rooms_3, class: "form-check-input"%>
+                  <%= label_tag :rooms, "3", class: 'me-2' %>
+                  <%= form.check_box :rooms_4, class: "form-check-input"%>
+                  <%= label_tag :rooms, "4+", class: 'me-2' %>
+                </div>
               </div>
               <div class="mb-3">
-                <%= form.label :bathrooms, "Baños:", class: "form-label" %>
-                <%= form.text_field :bathrooms, class: "form-control"%>
+                <%= form.label "Baños:", class: "form-label" %>
+                <div>
+                  <%= form.check_box :bathrooms_1, class: "form-check-input"%>
+                  <%= label_tag :bathrooms, "1", class: 'me-2' %>
+                  <%= form.check_box :bathrooms_2, class: "form-check-input"%>
+                  <%= label_tag :bathrooms, "2", class: 'me-2' %>
+                  <%= form.check_box :bathrooms_3, class: "form-check-input"%>
+                  <%= label_tag :bathrooms, "3", class: 'me-2' %>
+                </div>
               </div>
               <div class="mb-3">
-                <%= form.label :parking, "Estacionamientos:", class: "form-label" %>
-                <%= form.text_field :parking, class: "form-control"%>
+                <%= form.label "Estacionamientos:", class: "form-label" %>
+                <div>
+                  <%= form.check_box :parking_1, class: "form-check-input"%>
+                  <%= label_tag :parking, "1", class: 'me-2' %>
+                  <%= form.check_box :parking_2, class: "form-check-input"%>
+                  <%= label_tag :parking, "2", class: 'me-2' %>
+                  <%= form.check_box :parking_3, class: "form-check-input"%>
+                  <%= label_tag :parking_4, "3+", class: 'me-2' %>
+                </div>
               </div>
               <div class="mb-3">
-                <%= form.label :trunk, "Bauleras:", class: "form-label" %>
-                <%= form.text_field :trunk, class: "form-control"%>
+                <%= form.label "Bauleras:", class: "form-label" %>
+                <div>
+                  <%= form.check_box :trunk_1, class: "form-check-input"%>
+                  <%= label_tag :trunk, "1", class: 'me-2' %>
+                  <%= form.check_box :trunk_2, class: "form-check-input"%>
+                  <%= label_tag :trunk, "2+", class: 'me-2' %>
+                </div>
               </div>
+              <p>Amenities:</p>
               <div class="mb-3 form-check">
                 <%= form.label :bbq, "BBQ:", class: "form-check-label" %>
                 <%= form.check_box :bbq, class: "form-check-input"%>
