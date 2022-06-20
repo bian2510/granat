@@ -13,7 +13,7 @@
       </div>
       <div class='mb-3'>
         <%= form.label :email, 'Email:', class: 'form-label' %>
-        <%= form.text_field :email, class: 'form-control', placeholder: 'nombre@gmail.com', required: true%>
+        <%= form.email_field :email, class: 'form-control', autocomplete: "email", placeholder: 'nombre@gmail.com', required: true%>
       </div>
       <div class='mb-3'>
         <%= form.label :message, 'Mensaje:', class: 'form-label' %>
