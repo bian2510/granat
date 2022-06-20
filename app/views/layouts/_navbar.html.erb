@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark header-navbar fixed-top nav-font">
-  <div class="container-fluid">
+  <div class="container">
     <a class="navbar-brand" href="/">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,30 +8,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a id="home" class="nav-link" aria-current="page" href="/">Inicio</a>
+          <%= link_to 'Inicio', root_path, method: :get, id: 'home', class: "nav-link font-w-500" %>
         </li>
         <li class="nav-item">
-          <a id="properties" class="nav-link" href="/properties">Propiedades</a>
+          <%= link_to 'Propiedades', properties_path, method: :get, id: 'properties', class: "nav-link font-w-500" %>
         </li>
         <li class="nav-item">
-          <a id="about_us" class="nav-link" href="/about_us">Quienes Somos</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
+          <%= link_to 'Quienes Somos', about_us_path, method: :get, id: 'about_us', class: "nav-link font-w-500" %>
         </li>
         <li class="nav-item">
           <% if admin_signed_in? %>
-            <%= link_to 'Cerrar sesión', destroy_admin_session_path, method: :delete, class: "nav-link" %>
+            <%= link_to 'Cerrar sesión', destroy_admin_session_path, method: :delete, class: "nav-link font-w-500" %>
           <% else %>
-            <%= link_to 'Iniciar sesión', new_admin_session_path, class: "nav-link" %>
+            <%= link_to 'Iniciar sesión', new_admin_session_path, class: "nav-link font-w-500" %>
           <% end %>
         </li>
       </ul>
