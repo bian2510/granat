@@ -2,15 +2,16 @@
   <div class="row justify-content-around align-self-start h-100 blur">
     <div class="col-12 col-md-3 align-self-center">
       <h2 class='text-light'>Busque su barrio para vivir</h2>
-      <form class="d-flex">
-        <select class="form-select bg-dark text-white w-50 custom-select" aria-label="Default select example">
-          <option selected>Operación</option>
-          <option value="1">Alquiler</option>
-          <option value="2">Compra</option>
-        </select>
-        <input class="form-control me-2" type="search" placeholder="Caballito, Almagro" aria-label="Search">
-        <button class="btn btn-dark" type="submit">Buscar</button>
-      </form>
+      <%= form_with url: "/properties/filter", method: :get, class: 'd-flex' do |form| %>
+          <%= form.select :kind, 
+                          kind, {}, 
+                          class: "form-select bg-dark text-white w-50 custom-select" %>
+          <%= form.select :operation, 
+                          operations, {}, 
+                          class: "form-select bg-dark text-white w-50 custom-select" %>
+          <%= form.text_field :neighborhood, class: "form-control me-2", placeholder: 'Caballito, Palermo..'%>
+          <%= form.submit "Buscar", class: "btn btn-dark" %>
+      <%end%>
     </div>
   </div>
 </div>

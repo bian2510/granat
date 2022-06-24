@@ -94,7 +94,7 @@ module PropertiesHelper
    def operations
      [
        ['Seleccione', nil],
-       ['Compra', 'venta'],
+       ['Venta', 'venta'],
        ['Alquiler', 'alquiler']
      ]
    end
