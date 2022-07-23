@@ -8,13 +8,12 @@ class Property < ApplicationRecord
   def self.search_by(params)
     columns = self.columns_builder(params)
     others_conditions = self.greater_less_conditions(params)
-    Property.joins(
-        :property_feature, :amenity, :address
-    ).where(columns).where(
-        others_conditions[0]
-    ).where(others_conditions[1]).where(
-        others_conditions[2]
-    ).where(others_conditions[3])
+    properties = Property.joins(:property_feature, :amenity, :address).where(columns)
+    
+    others_conditions.reject { |c| c.empty? }.each do |condition|
+      properties = properties.and(Property.joins(:property_feature, :amenity, :address).where(condition))
+    end
+    properties
   end
 
   private
@@ -36,8 +35,22 @@ class Property < ApplicationRecord
 
   def self.build_property_feature_filter(params)
     %i[year_old rooms bathrooms parking trunk].each_with_object({}) do |key, hsh|
-        next if params[key].nil?
-        hsh[key] = params[key].to_i
+
+      if key == :rooms
+        self.fill_checkbox_options(hsh, key, params, %i[one_room two_rooms three_rooms four_rooms])
+      end
+      if key == :bathrooms
+        self.fill_checkbox_options(hsh, key, params, %i[one_bathroom two_bathrooms three_bathrooms])
+      end
+      if key == :parking
+        self.fill_checkbox_options(hsh, key, params, %i[one_parking two_parking three_parking])
+      end
+      if key == :trunk
+        self.fill_checkbox_options(hsh, key, params, %i[one_trunk two_trunk])
+      end
+      
+      next if params[key].nil?
+      hsh[key] = params[key].to_i
     end
   end
 
@@ -51,16 +64,32 @@ class Property < ApplicationRecord
   def self.build_address_filter(params)
     %i[province city municipality neighborhood main_street].each_with_object({}) do |key, hsh|
         next if params[key].nil?
-        hsh[key] = params[key].to_s
+        hsh[key] = params[key].to_s.downcase
     end
+  end
+
+  def self.array_of_values(keys, params)
+    values = []
+    keys.each_with_index {|key, index| values.push(index + 1) if params[key] == '1' } 
+    values
   end
 
   def self.greater_less_conditions(params)
     from_price = params[:from_price].nil? ? [] : ["price >= ?", params[:from_price].to_i]
     to_price = params[:to_price].nil? ? [] : ["price <= ?", params[:to_price].to_i]
-    from_total_area = params[:from_total_area].nil? ? [] : ["total_area >= ?", params[:from_total_area].to_f]
-    to_total_area = params[:to_total_area].nil? ? [] : ["total_area <= ?", params[:to_total_area].to_f]
-    
-    [from_price, to_price, from_total_area, to_total_area]
+    from_total_area = params[:from_total_area].nil? ? [] : ["property_feature.total_area >= ?", params[:from_total_area].to_f]
+    to_total_area = params[:to_total_area].nil? ? [] : ["property_feature.total_area <= ?", params[:to_total_area].to_f]
+
+    [
+      from_price, 
+      to_price, 
+      from_total_area, 
+      to_total_area, 
+    ]
+  end
+
+  def self.fill_checkbox_options(hsh, key, params, fields)
+    values = self.array_of_values(fields, params)
+    hsh[key] = values if values != []  
   end
 end

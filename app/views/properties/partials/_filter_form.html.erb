@@ -68,44 +68,44 @@
               <div class="mb-3">
                 <%= form.label "Cuartos:", class: "form-label" %>
                 <div>
-                  <%= form.check_box :rooms_1, class: "form-check-input"%>
+                  <%= form.check_box :one_room, class: "form-check-input"%>
                   <%= label_tag :rooms, "1", class: 'me-2' %>
-                  <%= form.check_box :rooms_2, class: "form-check-input"%>
+                  <%= form.check_box :two_rooms, class: "form-check-input"%>
                   <%= label_tag :rooms, "2", class: 'me-2' %>
-                  <%= form.check_box :rooms_3, class: "form-check-input"%>
+                  <%= form.check_box :three_rooms, class: "form-check-input"%>
                   <%= label_tag :rooms, "3", class: 'me-2' %>
-                  <%= form.check_box :rooms_4, class: "form-check-input"%>
+                  <%= form.check_box :four_rooms, class: "form-check-input"%>
                   <%= label_tag :rooms, "4+", class: 'me-2' %>
                 </div>
               </div>
               <div class="mb-3">
                 <%= form.label "Baños:", class: "form-label" %>
                 <div>
-                  <%= form.check_box :bathrooms_1, class: "form-check-input"%>
+                  <%= form.check_box :one_bathroom, class: "form-check-input"%>
                   <%= label_tag :bathrooms, "1", class: 'me-2' %>
-                  <%= form.check_box :bathrooms_2, class: "form-check-input"%>
+                  <%= form.check_box :two_bathrooms, class: "form-check-input"%>
                   <%= label_tag :bathrooms, "2", class: 'me-2' %>
-                  <%= form.check_box :bathrooms_3, class: "form-check-input"%>
-                  <%= label_tag :bathrooms, "3", class: 'me-2' %>
+                  <%= form.check_box :three_bathrooms, class: "form-check-input"%>
+                  <%= label_tag :bathrooms, "3+", class: 'me-2' %>
                 </div>
               </div>
               <div class="mb-3">
                 <%= form.label "Estacionamientos:", class: "form-label" %>
                 <div>
-                  <%= form.check_box :parking_1, class: "form-check-input"%>
+                  <%= form.check_box :one_parking, class: "form-check-input"%>
                   <%= label_tag :parking, "1", class: 'me-2' %>
-                  <%= form.check_box :parking_2, class: "form-check-input"%>
+                  <%= form.check_box :two_parking, class: "form-check-input"%>
                   <%= label_tag :parking, "2", class: 'me-2' %>
-                  <%= form.check_box :parking_3, class: "form-check-input"%>
-                  <%= label_tag :parking_4, "3+", class: 'me-2' %>
+                  <%= form.check_box :three_parking, class: "form-check-input"%>
+                  <%= label_tag :parking, "3+", class: 'me-2' %>
                 </div>
               </div>
               <div class="mb-3">
                 <%= form.label "Bauleras:", class: "form-label" %>
                 <div>
-                  <%= form.check_box :trunk_1, class: "form-check-input"%>
+                  <%= form.check_box :one_trunk, class: "form-check-input"%>
                   <%= label_tag :trunk, "1", class: 'me-2' %>
-                  <%= form.check_box :trunk_2, class: "form-check-input"%>
+                  <%= form.check_box :two_trunk, class: "form-check-input"%>
                   <%= label_tag :trunk, "2+", class: 'me-2' %>
                 </div>
               </div>
@@ -126,6 +126,7 @@
                 <%= form.label :pool, "Piscina:", class: "form-check-label" %>
                 <%= form.check_box :pool, class: "form-check-input"%>
               </div>
+              <%= form.hidden_field :page , value: 1 %>
               <%= form.submit "Aplicar", class: "btn btn-dark" %>
             <% end %>
           </div>
