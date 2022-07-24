@@ -17,10 +17,15 @@
           <%= link_to 'Quienes Somos', about_us_path, method: :get, id: 'about_us', class: "nav-link font-w-500" %>
         </li>
         <li class="nav-item">
-          <% if admin_signed_in? %>
-            <%= link_to 'Cerrar sesión', destroy_admin_session_path, method: :delete, class: "nav-link font-w-500" %>
+          <% if user_signed_in? %>
+            <%= link_to 'Subir propiedad', new_property_path, class: "nav-link font-w-500" %>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <% if user_signed_in? %>
+            <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: "nav-link font-w-500" %>
           <% else %>
-            <%= link_to 'Iniciar sesión', new_admin_session_path, class: "nav-link font-w-500" %>
+            <%= link_to 'Iniciar sesión', new_user_session_path, class: "nav-link font-w-500" %>
           <% end %>
         </li>
       </ul>

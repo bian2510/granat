@@ -42,11 +42,12 @@
         </iframe>
       </div>
     </div>
-    <%# contact-container %>
-    <%= render 'mailer/partials/contact_form', property: @property %>
+    <div class='col-12 col-md-3'>
+      <%# contact-container %>
+      <%= render 'mailer/partials/contact_form', property: @property %>
+      <% if admin_signed_in? || @property.user_id == current_user.id %>
+        <%= link_to 'Editar Propiedad', edit_property_path(@property), class: 'nav-link font-w-500' %>
+      <% end %>
+    </div>    
   </div>
 </div>
-<% if admin_signed_in? %>
-  <%= link_to 'Edit', edit_property_path(@property) %> |
-<% end %>
-<%= link_to 'Back', properties_path %>

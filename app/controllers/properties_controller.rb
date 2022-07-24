@@ -1,6 +1,6 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: %i[ show edit update destroy ]
-  before_action :authenticate_admin!, only: %i[ edit update destroy ]
+  before_action :authenticate_user!, only: %i[ edit update destroy ]
   before_action :filter_params, only: %i[ filter ]
 
   # GET /properties or /properties.json
@@ -24,7 +24,7 @@ class PropertiesController < ApplicationController
   # POST /properties or /properties.json
   def create
     @property = Property.new(property_params)
-    @property.admin_id = current_admin.id
+    @property.user_id = current_user.id
     respond_to do |format|
       if @property.save
         format.html { redirect_to new_property_feature_path(property_id: @property.id), notice: "Property was successfully created." }

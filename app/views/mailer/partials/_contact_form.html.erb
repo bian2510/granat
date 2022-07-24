@@ -1,26 +1,24 @@
-<div class='col-12 col-md-3'>
-  <div class='contact-form-container'>
-    <h5>Envianos un mensaje:</h5>
-    <%# Change to ajax and return a bubble %>
-    <%= form_with url: '/mailer/contact', class: 'row g-3 needs-validation', method: :post do |form| %>
-      <div class='mb-3'>
-        <%= form.label :fullname, 'Nombre y Apellido:', class: 'form-label' %>
-        <%= form.text_field :fullname, class: 'form-control', placeholder: 'Pedro Perez', required: true%>
-      </div>
-      <div class='mb-3'>
-        <%= form.label :phone, 'Telefono:', class: 'form-label' %>
-        <%= form.text_field :phone, class: 'form-control', placeholder: '1122334455', required: true%>
-      </div>
-      <div class='mb-3'>
-        <%= form.label :email, 'Email:', class: 'form-label' %>
-        <%= form.email_field :email, class: 'form-control', autocomplete: "email", placeholder: 'nombre@gmail.com', required: true%>
-      </div>
-      <div class='mb-3'>
-        <%= form.label :message, 'Mensaje:', class: 'form-label' %>
-        <%= form.text_area :message, class: 'form-control', placeholder: 'nombre@gmail.com', rows: '3', required: true%>
-      </div>
-      <%= form.hidden_field :id, value: property.id %>
-      <%= form.submit 'Enviar mensaje', class: 'btn btn-dark' %>
-    <% end %>
-  </div>
+<div class='contact-form-container'>
+  <h5>Envianos un mensaje:</h5>
+  <%# Change to ajax and return a bubble %>
+  <%= form_with url: '/mailer/contact', class: 'row g-3 needs-validation', method: :post do |form| %>
+    <div class='mb-3'>
+      <%= form.label :fullname, 'Nombre y Apellido:', class: 'form-label' %>
+      <%= form.text_field :fullname, class: 'form-control', placeholder: 'Pedro Perez', required: true%>
+    </div>
+    <div class='mb-3'>
+      <%= form.label :phone, 'Telefono:', class: 'form-label' %>
+      <%= form.text_field :phone, class: 'form-control', placeholder: '1122334455', required: true%>
+    </div>
+    <div class='mb-3'>
+      <%= form.label :email, 'Email:', class: 'form-label' %>
+      <%= form.email_field :email, class: 'form-control', autocomplete: "email", placeholder: 'nombre@gmail.com', required: true%>
+    </div>
+    <div class='mb-3'>
+      <%= form.label :message, 'Mensaje:', class: 'form-label' %>
+      <%= form.text_area :message, class: 'form-control', placeholder: 'nombre@gmail.com', rows: '3', required: true%>
+    </div>
+    <%= form.hidden_field :id, value: property.id %>
+    <%= form.submit 'Enviar mensaje', class: 'btn btn-dark' %>
+  <% end %>
 </div>

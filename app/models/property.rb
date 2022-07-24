@@ -1,5 +1,5 @@
 class Property < ApplicationRecord
-    belongs_to :admin
+    belongs_to :user
     has_one :address, dependent: :destroy
     has_one :property_feature, dependent: :destroy
     has_one :amenity, dependent: :destroy
